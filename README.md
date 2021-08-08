@@ -1,0 +1,2 @@
+# beatrice
+Home Server
