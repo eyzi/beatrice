@@ -10,13 +10,14 @@
     "build:install": "lerna bootstrap && yarn build",
     "clean": "lerna run clean --parallel",
     "lerna:clean": "lerna run lerna:clean --parallel",
+    "lerna:link": "lerna run lerna:link --parallel",
     "lerna:publish": "lerna publish",
+    "lerna:version": "lerna version --conventional-commits",
     "start": "lerna run start --parallel",
     "start:dev": "lerna run start:dev --parallel",
     "start:dev:build": "yarn build && lerna run start:dev --parallel",
     "start:pm2": "yarn build:clean && lerna run start:pm2 --parallel --since main",
-    "lerna:link": "lerna run lerna:link --parallel",
-    "lerna:version": "lerna version --conventional-commits"
+    "test": "lerna run test --parallel"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,16 @@
   },
   "homepage": "https://github.com/eyzi/beatrice#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.13",
+    "@types/sinon": "^10.0.2",
+    "chai": "^4.3.4",
     "lerna": "^4.0.0",
+    "mocha": "^9.0.3",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.2",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   }
 }

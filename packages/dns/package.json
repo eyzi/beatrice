@@ -27,9 +27,42 @@
     "start:dev": "ts-node src/index.ts",
     "start:dev:build": "yarn build && ts-node src/index.ts",
     "start:pm2": "pm2 start ecosystem.json",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "nyc mocha"
   },
   "bugs": {
     "url": "https://github.com/eyzi/beatrice/issues"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "per-file": true
+  },
+  "mocha": {
+    "require": [
+      "ts-node/register"
+    ],
+    "extension": [
+      "ts"
+    ],
+    "spec": "__tests__/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.13",
+    "@types/sinon": "^10.0.2",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.2"
   }
 }

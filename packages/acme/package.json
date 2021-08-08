@@ -26,8 +26,7 @@
     "start": "node .",
     "start:dev": "ts-node src/index.ts",
     "start:dev:build": "yarn build && ts-node src/index.ts",
-    "start:pm2": "pm2 start ecosystem.json",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "start:pm2": "pm2 start ecosystem.json"
   },
   "bugs": {
     "url": "https://github.com/eyzi/beatrice/issues"
