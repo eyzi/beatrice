@@ -1,0 +1,35 @@
+{
+  "name": "@beatrice/acme",
+  "version": "0.0.0",
+  "description": "Acme Server",
+  "author": "Eyzi <contact@eyzi.xyz>",
+  "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/acme#readme",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyzi/beatrice.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "yarn clean && yarn build",
+    "clean": "rm -rf lib && rm -rf node_modules",
+    "lerna:link": "lerna link",
+    "start": "node .",
+    "start:dev": "ts-node src/index.ts",
+    "start:dev:build": "yarn build && ts-node src/index.ts",
+    "start:pm2": "pm2 start ecosystem.json",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/eyzi/beatrice/issues"
+  }
+}
