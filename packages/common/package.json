@@ -4,6 +4,7 @@
   "description": "> TODO: description",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/common#readme",
+  "private": true,
   "license": "UNLICENSED",
   "main": "lib/index.js",
   "directories": {
