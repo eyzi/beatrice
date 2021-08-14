@@ -12,7 +12,7 @@
     "clean": "lerna run clean --parallel",
     "lerna:link": "lerna run lerna:link --parallel",
     "lerna:publish": "lerna publish",
-    "lerna:version": "lerna version --conventional-commits",
+    "lerna:version": "lerna version --conventional-commits --yes",
     "start": "lerna run start --parallel",
     "start:dev": "lerna run start:dev --parallel",
     "start:dev:build": "yarn build && lerna run start:dev --parallel",
