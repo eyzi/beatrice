@@ -1,20 +1,17 @@
 import {
+	Queryable
+} from "@beatrice/common"
+import {
 	Domain,
 	Record,
 	RecordType,
-	RecordRepository
+	RecordQuery
 } from "../types"
-import createWildcards from "./createWildcards"
+import buildAnswerQuery from "./buildAnswerQuery"
 import queryRecord from "./queryRecord"
 
 export default async (
+	recordRepository: Queryable<Record, RecordQuery>,
 	name: Domain,
-	type: RecordType,
-	recordRepository: RecordRepository
-): Promise<Record[]> => {
-	const query = {
-		type,
-		name: createWildcards(name)
-	}
-	return await queryRecord(query, recordRepository)
-}
+	type: RecordType
+): Promise<Record[]> => queryRecord(recordRepository, buildAnswerQuery(name, type))

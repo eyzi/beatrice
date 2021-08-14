@@ -1,4 +1,6 @@
-import { Domain } from "../types"
+import {
+	Domain
+} from "../types"
 
 export default (
 	domain: Domain

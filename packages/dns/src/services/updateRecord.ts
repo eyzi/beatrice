@@ -1,10 +1,14 @@
 import {
-	Record,
-	RecordRepository
+	Id,
+	Updatable,
+	persistenceUpdate
+} from "@beatrice/common"
+import {
+	Record
 } from "../types"
 
 export default async (
-	id: string,
-	body: Partial<Record>,
-	recordRepository: RecordRepository
-): Promise<Record | null> => await recordRepository.update(id, body)
+	recordRepository: Updatable<Record>,
+	record: Record | Id,
+	body: Partial<Record>
+): Promise<Record | null> => persistenceUpdate(recordRepository, record, body)

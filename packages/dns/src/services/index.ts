@@ -1,0 +1,5 @@
+export { default as createAnswer } from "./createAnswer"
+export { default as createRecord } from "./createRecord"
+export { default as createWildcards } from "./createWildcards"
+export { default as queryRecord } from "./queryRecord"
+export { default as updateRecord } from "./updateRecord"

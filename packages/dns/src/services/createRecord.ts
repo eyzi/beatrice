@@ -1,9 +1,13 @@
 import {
-	Record,
-	RecordRepository
+	OmitId,
+	Creatable,
+	persistenceCreate
+} from "@beatrice/common"
+import {
+	Record
 } from "../types"
 
 export default async (
-	record: Omit<Record, "id">,
-	recordRepository: RecordRepository
-): Promise<Record | null> => await recordRepository.create(record)
+	recordRepository: Creatable<Record>,
+	record: OmitId<Record>
+): Promise<Record | null> => persistenceCreate(recordRepository, record)

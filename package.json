@@ -6,8 +6,9 @@
   "scripts": {
     "build": "yarn build:common && lerna run build --since --parallel",
     "build:clean": "yarn clean && yarn build:install",
-    "build:common": "lerna run build:common --since --parallel",
+    "build:common": "lerna run build:common --parallel",
     "build:install": "lerna bootstrap && yarn build",
+    "build:test": "yarn build && yarn test",
     "clean": "lerna run clean --parallel",
     "lerna:clean": "lerna run lerna:clean --parallel",
     "lerna:link": "lerna run lerna:link --parallel",

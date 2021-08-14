@@ -11,13 +11,21 @@ export type Record = {
 }
 
 export type RecordQuery = {
-	type: RecordType | RecordType[]
+	type: RecordType
 	name?: Domain | Domain[]
 	data?: string | object
 }
 
-export type RecordRepository = {
-	query: (query: RecordQuery) => Promise<Record[]>
-	create: (record: Omit<Record, "id">) => Promise<Record | null>
-	update: (id: string, body: Partial<Record>) => Promise<Record | null>
+export type ZoneData = {
+	mname: string;
+	rname: string;
+	serial: string;
+	refresh: string;
+	retry: string;
+	expire: string;
+	ttl: string;
+}
+
+export type Question = {
+	type?: string;
 }

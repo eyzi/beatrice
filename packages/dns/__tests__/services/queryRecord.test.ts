@@ -1,12 +1,12 @@
 import { expect } from "chai"
-import { spy, stub } from "sinon"
+import { stub } from "sinon"
 
 import { Queryable } from "@beatrice/common"
 
 import { Record, RecordQuery } from "../../src/types"
-import createAnswer from "../../src/services/createAnswer"
+import queryRecord from "../../src/services/queryRecord"
 
-describe("createAnswer", () => {
+describe("queryRecord", () => {
 	const testRecord: Record = {
 		id: "test-id",
 		name: "test-domain",
@@ -18,9 +18,9 @@ describe("createAnswer", () => {
 		query: async () => [testRecord]
 	}
 
-	it("should call repository's query function", async () => {
+	it("should return record on create", async () => {
 		const fn = stub(repository, "query").resolves([testRecord])
-		expect(await createAnswer(repository, "test-domain", "test-type")).to.eql([testRecord])
-		expect(fn.calledOnceWith({ type: "test-type", name: ["test-domain"] })).to.be.true
+		expect(await queryRecord(repository, { type: "test-type" })).to.eql([testRecord])
+		expect(fn.calledOnce).to.be.true
 	})
 })
