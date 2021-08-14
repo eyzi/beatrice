@@ -21,7 +21,7 @@
   "scripts": {
     "build": "tsc",
     "build:clean": "yarn clean && yarn build",
-    "clean": "rm -rf lib && rm -rf node_modules",
+    "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
     "lerna:link": "lerna link",
     "start": "node .",
     "start:dev": "ts-node src/index.ts",

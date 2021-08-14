@@ -1,5 +1,7 @@
-export type Id = string
-export type OmitId<T> = Omit<T, "id">
+import {
+	Id,
+	OmitId
+} from "./entity"
 
 export type Retrievable<T> = {
 	get: (id: Id) => Promise<T | null>

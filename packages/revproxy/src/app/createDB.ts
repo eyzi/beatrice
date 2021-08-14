@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
-import { Repository } from "@beatrice/common"
-import initDB from "../infrastructures/mongodb/mongoRecordRepository"
-import { Record, RecordQuery } from "../types";
+import initDB from "../infrastructures/mongodb/createSubdomainRepository"
+import { SubdomainRepository } from "../types";
 
 const DB_OPTIONS = {
 	useNewUrlParser: true,
@@ -12,7 +11,7 @@ const DB_OPTIONS = {
 
 export default async (
 	dbString: string
-): Promise<Repository<Record, RecordQuery> | undefined> => {
+): Promise<SubdomainRepository | undefined> => {
 	if (!dbString) return undefined
 	const db = await mongoose.connect(dbString, DB_OPTIONS)
 	db.pluralize(null)

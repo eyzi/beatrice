@@ -1,4 +1,4 @@
-import { Record } from "../../../../types"
+import { Record } from "../../../types"
 import { RecordDocument } from "./types"
 
 export const buildRecord = (

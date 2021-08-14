@@ -4,7 +4,7 @@ import {
 	OmitId,
 	Repository
 } from "@beatrice/common"
-import { Record, RecordQuery } from "../../../../types"
+import { Record, RecordQuery } from "../../../types"
 import { buildRecord, buildRecordOrNull } from "./map"
 import { RecordDocument } from "./types"
 
