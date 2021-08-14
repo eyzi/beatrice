@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/acme",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Acme Server",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/acme#readme",
@@ -32,7 +32,7 @@
     "url": "https://github.com/eyzi/beatrice/issues"
   },
   "dependencies": {
-    "@beatrice/common": "^0.1.1",
+    "@beatrice/common": "^0.2.0",
     "dotenv": "^10.0.0"
   }
 }
