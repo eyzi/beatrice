@@ -54,7 +54,7 @@ services:
       dockerfile: ./Dockerfile
     command: yarn start --scope=@beatrice/acme
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       PORT_ACME_API: 8080
       CERT_DIR: /certs
       SCHEDULE: "0 0 * * *"
