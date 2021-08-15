@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/acme",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Acme Server",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/acme#readme",
@@ -56,7 +56,7 @@
     "spec": "__tests__/**/*.test.ts"
   },
   "dependencies": {
-    "@beatrice/common": "^0.3.0",
+    "@beatrice/common": "^0.4.0",
     "@fidm/x509": "^1.2.1",
     "@root/csr": "^0.8.1",
     "@root/keypairs": "^0.10.1",
