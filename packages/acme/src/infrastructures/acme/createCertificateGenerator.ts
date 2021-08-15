@@ -14,25 +14,20 @@ import {
 
 const DIR_STAGING = "https://acme-staging-v02.api.letsencrypt.org/directory";
 const DIR_PROD = "https://acme-v02.api.letsencrypt.org/directory";
-const EMPTY_CERTIFICATE: SSL = {
-	privateKey: null,
-	certificate: null
-};
 
 const initGenerator = (
 	directoryUrl: string,
 	challenges: AcmeChallenge
 ) => async (
 	account: AcmeAccount
-) => {
+): Promise<SSL | null> => {
 	if (!account || !account.key) {
-		console.error("Account or account key not found");
-		return EMPTY_CERTIFICATE;
+		throw new Error("Account or account key not found");
 	}
 
 	const acme = ACME.create({
 		maintainerEmail: account.email,
-		packageAgent: `${pkg.name}:${pkg.version}`,
+		packageAgent: `${pkg.name}/${pkg.version}`,
 		notify: (event: any, details: string | object) => {
 			if (event === "error") console.error(details);
 		}
@@ -45,8 +40,7 @@ const initGenerator = (
 		accountKey: account.key
 	});
 	if (!acmeAccount) {
-		console.error(`Could not create ACME account for ${ account.id }`);
-		return EMPTY_CERTIFICATE;
+		throw new Error(`Could not create ACME account for ${ account.id }`);
 	}
 
 	const serverKeypair = await Keypairs.generate({
@@ -58,25 +52,22 @@ const initGenerator = (
 
 	const rawDomains = includeWildcards(account.domains);
 	if (!rawDomains || rawDomains.length <= 0) {
-		console.error(`Domains for ${ account.id } is empty`);
-		return EMPTY_CERTIFICATE;
+		throw new Error(`Domains for ${ account.id } is empty`);
 	}
 
 	const domains = rawDomains.map(domain => punycode.toASCII(domain));
-	console.log(domains);
 	const encoding = "der";
 	const csrDer = await CSR.csr({
 		jwk: serverKey,
 		domains,
 		encoding
-	}).catch(console.error);
+	}).catch((err: any) => { throw new Error(err) });
 	const csr = PEM.packBlock({
 		type: "CERTIFICATE REQUEST",
 		bytes: csrDer
 	});
 	if (!csr) {
-		console.error(`Could not create CSR for ${ account.id }`);
-		return EMPTY_CERTIFICATE;
+		throw new Error(`Could not create CSR for ${ account.id }`);
 	}
 
 	try {
@@ -88,8 +79,7 @@ const initGenerator = (
 			challenges
 		});
 		if (!pems) {
-			console.error(`Could not create PEMS for ${ account.id }`);
-			return EMPTY_CERTIFICATE;
+			throw new Error(`Could not create PEMS for ${ account.id }`);
 		}
 
 		return {
@@ -97,8 +87,7 @@ const initGenerator = (
 			certificate: `${pems.cert}\n${pems.chain}\n`
 		};
 	} catch (error) {
-		console.error(error);
-		return EMPTY_CERTIFICATE;
+		throw new Error(error);
 	}
 }
 
@@ -106,7 +95,7 @@ export default (
 	challenges: AcmeChallenge,
 	staging: boolean = true
 ) => ({
-	generator: initGenerator(
+	generate: initGenerator(
 		staging ? DIR_STAGING : DIR_PROD,
 		challenges
 	)

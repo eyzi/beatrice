@@ -10,6 +10,7 @@ import queryRecord from "../services/queryRecord"
 import createRecord from "../services/createRecord"
 import getRecord from "../services/getRecord"
 import updateRecord from "../services/updateRecord"
+import deleteRecord from "../services/deleteRecord"
 
 const serverError = (res: Response) => res.status(500).end()
 
@@ -64,6 +65,18 @@ const handleUpdateRecord = (
 	else return res.status(422).end("Could not modify DNS record")
 }
 
+const handleDeleteRecord = (
+	repository?: Repository<Record, RecordQuery>
+) => async (
+	req: Request,
+	res: Response
+) => {
+	if (!repository) return serverError(res)
+	const record = await deleteRecord(repository, req.params.id);
+	if (record) return res.status(200).json(record)
+	else return res.status(422).end("Could not delete DNS record")
+}
+
 export default async (
 	port?: string,
 	repository?: Repository<Record, RecordQuery>
@@ -78,6 +91,7 @@ export default async (
 	app.post("/", handleCreateRecord(repository))
 	app.get("/:id", handleGetRecord(repository))
 	app.patch("/:id", handleUpdateRecord(repository))
+	app.delete("/:id", handleDeleteRecord(repository))
 
 	app.listen(+port, "0.0.0.0", () => {
 		console.log(`API Service running at ${port}`);

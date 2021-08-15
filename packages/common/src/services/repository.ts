@@ -4,6 +4,7 @@ import {
 	HasId,
 	Creatable,
 	Retrievable,
+	RetrievableAll,
 	Queryable,
 	Updatable,
 	Deletable
@@ -24,6 +25,10 @@ export const persistenceGet = <T>(
 ) => async (
 	id: Id
 ): Promise<T | null> => repository.get(id)
+
+export const persistenceGetAll = <T>(
+	repository: RetrievableAll<T>
+) => async (): Promise<T[]> => repository.getAll()
 
 export const persistenceQuery = <T, Q>(
 	repository: Queryable<T, Q>

@@ -1,4 +1,4 @@
-import { Connection, Schema, Types } from "mongoose"
+import { Connection, Schema, Types, ObjectId } from "mongoose"
 import {
 	Id,
 	getEntityId,
@@ -9,10 +9,9 @@ import {
 } from "../../types"
 import { AcmeAccountDocument } from "./types"
 import {
+	buildAcmeAccount,
 	buildAcmeAccountOrNull
 } from "./map"
-
-const COLLECTION_NAME = "acmeAccount"
 
 const AcmeSchema = new Schema({
 	name: String,
@@ -30,18 +29,28 @@ const AcmeSchema = new Schema({
 }, { timestamps: true });
 
 const initGet = (
-	db: Connection
+	db: Connection,
+	collectionName: string
 ) => async (
 	id: Id
 ) => {
 	if (!Types.ObjectId.isValid(id)) return null
 
-	const AcmeModel = db.model<AcmeAccountDocument>(COLLECTION_NAME, AcmeSchema)
+	const AcmeModel = db.model<AcmeAccountDocument>(collectionName, AcmeSchema)
 	return AcmeModel.findById(id).then(buildAcmeAccountOrNull)
 }
 
+const initGetAll = (
+	db: Connection,
+	collectionName: string
+) => async () => {
+	const AcmeModel = db.model<AcmeAccountDocument>(collectionName, AcmeSchema)
+	return AcmeModel.find({}).then((accounts: AcmeAccountDocument[]) => accounts.map(buildAcmeAccount))
+}
+
 const initUpdate = (
-	db: Connection
+	db: Connection,
+	collectionName: string
 ) => async (
 	entity: AcmeAccount | Id,
 	body: Partial<AcmeAccount>
@@ -49,7 +58,7 @@ const initUpdate = (
 	const id = getEntityId(entity)
 	if (!Types.ObjectId.isValid(id)) return null
 
-	const AcmeModel = db.model<AcmeAccountDocument>(COLLECTION_NAME, AcmeSchema)
+	const AcmeModel = db.model<AcmeAccountDocument>(collectionName, AcmeSchema)
 	return AcmeModel.findByIdAndUpdate(
 		id,
 		{ $set: body },
@@ -58,8 +67,11 @@ const initUpdate = (
 }
 
 export default (
+	collectionName: string
+) => (
 	db: Connection
 ): AcmeAccountRepository => ({
-	get: initGet(db),
-	update: initUpdate(db)
+	get: initGet(db, collectionName),
+	getAll: initGetAll(db, collectionName),
+	update: initUpdate(db, collectionName)
 })

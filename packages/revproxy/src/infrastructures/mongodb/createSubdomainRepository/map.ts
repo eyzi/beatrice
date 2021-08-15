@@ -4,7 +4,7 @@ import { SubdomainDocument } from "./types"
 export const buildSubdomain = (
 	doc: SubdomainDocument
 ): Subdomain => ({
-	id: doc._id,
+	id: doc._id.toString(),
 	domain: doc.domain,
 	url: doc.url,
 	certificateId: doc.certificateId

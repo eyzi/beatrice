@@ -57,6 +57,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.21",
     "@types/mocha": "^9.0.0",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^16.6.1",
     "@types/sinon": "^10.0.2",
     "chai": "^4.3.4",
@@ -65,6 +66,7 @@
     "sinon": "^11.1.2"
   },
   "dependencies": {
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "mongoose": "^5.13.7"
   }
 }

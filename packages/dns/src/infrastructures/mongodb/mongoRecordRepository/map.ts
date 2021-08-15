@@ -4,7 +4,7 @@ import { RecordDocument } from "./types"
 export const buildRecord = (
 	doc: RecordDocument
 ): Record => ({
-	id: doc._id,
+	id: doc._id.toString(),
 	name: doc.name,
 	type: doc.type,
 	data: doc.data,

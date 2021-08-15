@@ -8,7 +8,7 @@ import {
 export const buildAcmeAccount = (
 	doc: AcmeAccountDocument
 ): AcmeAccount => ({
-	id: doc._id,
+	id: doc._id.toString(),
 	key: doc.key,
 	email: doc.email,
 	domains: doc.domains,

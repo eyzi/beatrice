@@ -40,6 +40,14 @@ const initGet = (
 	return RecordModel.findById(id).then(buildRecordOrNull)
 }
 
+const initGetAll = (
+	db: Connection
+) => async (): Promise<Record[]> => {
+	const RecordModel = db.model<RecordDocument>(COLLECTION_NAME, RecordSchema)
+	return RecordModel.find({})
+		.then((docs: RecordDocument[]) => docs.map(buildRecord))
+}
+
 const initQuery = (
 	db: Connection
 ) => async (
@@ -95,6 +103,7 @@ export default (
 ): Repository<Record, RecordQuery> => ({
 	create: initCreate(db),
 	get: initGet(db),
+	getAll: initGetAll(db),
 	query: initQuery(db),
 	update: initUpdate(db),
 	delete: initDelete(db),

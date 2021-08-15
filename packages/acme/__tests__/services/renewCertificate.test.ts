@@ -30,6 +30,7 @@ describe("renewCertificate", () => {
 		update: async () => ssl
 	}
 	const acmeAccountRepository = {
+		get: async () => acmeAccount,
 		update: async () => acmeAccount
 	}
 
@@ -54,7 +55,7 @@ describe("renewCertificate", () => {
 
 	it("should renew when due", async () => {
 		stubCertParser.resolves({ validTo: new Date() })
-		await renewCertificate({
+		const { renewed } = await renewCertificate({
 			acmeAccount,
 			certificateGenerator,
 			certificateParser,
@@ -62,6 +63,7 @@ describe("renewCertificate", () => {
 			acmeAccountRepository,
 			renewalListeners: [stubListener]
 		})
+		expect(renewed).to.be.true
 		expect(stubCertGetter.calledOnce).to.be.true
 		expect(stubCertParser.calledOnce).to.be.true
 		expect(stubCertGenerator.calledOnce).to.be.true
@@ -74,7 +76,7 @@ describe("renewCertificate", () => {
 		const due = new Date()
 		due.setDate(due.getDate() + 100)
 		stubCertParser.resolves({ validTo: due })
-		await renewCertificate({
+		const { renewed, message } = await renewCertificate({
 			acmeAccount,
 			certificateGenerator,
 			certificateParser,
@@ -83,6 +85,8 @@ describe("renewCertificate", () => {
 			renewalListeners: [stubListener],
 			force: false
 		})
+		expect(renewed).to.be.false
+		expect(message).to.eql("Certificate is not due")
 		expect(stubCertGetter.calledOnce).to.be.true
 		expect(stubCertParser.calledOnce).to.be.true
 		expect(stubCertGenerator.calledOnce).to.be.false
@@ -95,7 +99,7 @@ describe("renewCertificate", () => {
 		const due = new Date()
 		due.setDate(due.getDate() + 100)
 		stubCertParser.resolves({ validTo: due })
-		await renewCertificate({
+		const { renewed } = await renewCertificate({
 			acmeAccount,
 			certificateGenerator,
 			certificateParser,
@@ -104,6 +108,7 @@ describe("renewCertificate", () => {
 			renewalListeners: [stubListener],
 			force: true
 		})
+		expect(renewed).to.be.true
 		expect(stubCertGetter.calledOnce).to.be.true
 		expect(stubCertParser.calledOnce).to.be.true
 		expect(stubCertGenerator.calledOnce).to.be.true
@@ -112,10 +117,10 @@ describe("renewCertificate", () => {
 		expect(stubListener.calledOnce).to.be.true
 	})
 
-	it("should not renew when generator fails", async () => {
+	it("should not renew when generator doesn't generate cert", async () => {
 		stubCertParser.resolves({ validTo: new Date() })
 		stubCertGenerator.resolves(null)
-		await renewCertificate({
+		const { renewed, message } = await renewCertificate({
 			acmeAccount,
 			certificateGenerator,
 			certificateParser,
@@ -123,6 +128,29 @@ describe("renewCertificate", () => {
 			acmeAccountRepository,
 			renewalListeners: [stubListener]
 		})
+		expect(renewed).to.be.false
+		expect(message).to.be.eql("Certificate generator failed")
+		expect(stubCertGetter.calledOnce).to.be.true
+		expect(stubCertParser.calledOnce).to.be.true
+		expect(stubCertGenerator.calledOnce).to.be.true
+		expect(stubCertUpdater.calledOnce).to.be.false
+		expect(stubAccountUpdater.calledOnce).to.be.false
+		expect(stubListener.calledOnce).to.be.false
+	})
+
+	it("should not renew when generator throws an error", async () => {
+		stubCertParser.resolves({ validTo: new Date() })
+		stubCertGenerator.throws(new Error("Generator error"))
+		const { renewed, message } = await renewCertificate({
+			acmeAccount,
+			certificateGenerator,
+			certificateParser,
+			certificateRepository,
+			acmeAccountRepository,
+			renewalListeners: [stubListener]
+		})
+		expect(renewed).to.be.false
+		expect(message).to.eql("Error: Generator error")
 		expect(stubCertGetter.calledOnce).to.be.true
 		expect(stubCertParser.calledOnce).to.be.true
 		expect(stubCertGenerator.calledOnce).to.be.true

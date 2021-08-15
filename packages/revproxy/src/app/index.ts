@@ -1,9 +1,10 @@
+import { createMongoRepository } from "@beatrice/common"
 import createRedbirdApp from "../infrastructures/redbird/createSubdomainController"
+import createSubdomainRepository from "../infrastructures/mongodb/createSubdomainRepository"
 import getSubdomains from "../services/getSubdomains"
 import startSubdomains from "../services/startSubdomains"
 import { SubdomainController, SubdomainRepository } from "../types"
-import createDB from "./createDB"
-import startExpress from "./startExpress"
+import startApi from "./startApi"
 
 const initializeSavedSubdomains = async (
 	repository: SubdomainRepository,
@@ -28,9 +29,9 @@ export default async ({
 		certDir
 	})
 
-	const repository = await createDB(dbString)
+	const repository = await createMongoRepository<SubdomainRepository>(dbString, createSubdomainRepository)
 	if (repository) initializeSavedSubdomains(repository, controller)
 	else console.log("DB could not be started")
 
-	startExpress(apiPort, repository, controller)
+	startApi(apiPort, repository, controller)
 }

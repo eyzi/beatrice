@@ -2,12 +2,16 @@ import {
 	existsSync,
 	mkdirSync,
 	readFileSync,
-	writeFileSync
+	writeFileSync,
+	readdirSync
 } from "fs"
 import { resolve } from "path"
 import {
 	Id,
-	SSL
+	SSL,
+	Retrievable,
+	Updatable,
+	RetrievableAll
 } from "@beatrice/common"
 
 const PRIVKEY_FILE = "privkey.pem"
@@ -27,11 +31,10 @@ const certFile = (
 	id: string
 ) => resolve(certDir, id, CERT_FILE)
 
-const initGet = (
-	certDir: string
-) => async (
+const getById = async (
+	certDir: string,
 	id: Id
-): Promise<SSL> => {
+) => {
 	if (!existsSync(resolve(certDir, id))) return EMPTY_CERTIFICATE
 	return {
 		privateKey: readFileSync(privKeyFile(certDir, id), "ascii"),
@@ -39,26 +42,47 @@ const initGet = (
 	}
 }
 
+const initGetAll = (
+	certDir: string
+) => async (): Promise<SSL[]> => {
+	if (!existsSync(resolve(certDir))) return []
+	return Promise.all(
+		readdirSync(resolve(certDir)).map(async id => {
+			const { privateKey, certificate } = await getById(certDir, id)
+			return { id, privateKey, certificate }
+		})
+	)
+}
+
+const initGet = (
+	certDir: string
+) => async (
+	id: Id
+): Promise<SSL | null> => getById(certDir, id)
+
 const initUpdate = (
 	certDir: string
 ) => async (
-	id: Id,
-	body: SSL
-): Promise<SSL> => {
+	id: SSL | Id,
+	body: Partial<SSL>
+): Promise<SSL | null> => {
+	if (typeof id !== "string") return EMPTY_CERTIFICATE
+
 	if (!existsSync(certDir))
-		return EMPTY_CERTIFICATE
+		mkdirSync(resolve(certDir))
 
 	if (!existsSync(resolve(certDir, id))) 
 		mkdirSync(resolve(certDir, id))
 
 	writeFileSync(privKeyFile(certDir, id), body.privateKey || "", "ascii")
 	writeFileSync(certFile(certDir, id), body.certificate || "", "ascii")
-	return body
+	return body as SSL
 }
 
 export default (
 	certDir: string
-) => ({
+): Updatable<SSL> & Retrievable<SSL> & RetrievableAll<SSL> => ({
 	get: initGet(certDir),
+	getAll: initGetAll(certDir),
 	update: initUpdate(certDir)
 })

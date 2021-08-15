@@ -23,9 +23,14 @@ export type Queryable<T, Q> = {
 	query: (query: Q) => Promise<T[]>
 }
 
+export type RetrievableAll<T> = {
+	getAll: () => Promise<T[]>
+}
+
 export type Repository<T, Q> =
 	Creatable<T> &
 	Retrievable<T> &
+	RetrievableAll<T> &
 	Queryable<T, Q> &
 	Updatable<T> &
 	Deletable<T>

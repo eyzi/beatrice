@@ -2,10 +2,12 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.4.0",
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "command": {
     "version": {
-      "push": false
+      "push": true
     }
   }
 }
