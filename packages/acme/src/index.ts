@@ -4,7 +4,7 @@ import startApp from "./app"
 
 const {
 	PORT_ACME_API,
-	PROD,
+	NODE_ENV,
 	CERT_DIR,
 	SCHEDULE,
 	MARGIN_DAYS,
@@ -15,7 +15,7 @@ const {
 
 startApp({
 	apiPort: PORT_ACME_API,
-	staging: !(PROD === "true"), // staging:true has to be default in case env variable doesn't exist
+	staging: !(NODE_ENV === "production"), // staging:true has to be default in case env variable doesn't exist
 	certDir: CERT_DIR,
 	dbString: DB_STRING,
 	challengeUrl: URL_CHALLENGE,

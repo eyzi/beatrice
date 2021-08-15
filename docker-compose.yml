@@ -1,0 +1,71 @@
+version: "3.4"
+
+services:
+  beatrice-dns:
+    image: beatrice-dns
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: yarn start --scope=@beatrice/dns
+    environment:
+      NODE_ENV: production
+      PORT_DNS_APP: 53
+      PORT_DNS_API: 8080
+    extra_hosts:
+      - beatrice:10.0.0.1
+    volumes:
+      - /var/www/certs:/certs
+    ports:
+      - 53:53
+      - 9053:8080
+    expose:
+      - 53
+      - 9053/tcp
+
+  beatrice-revproxy:
+    image: beatrice-revproxy
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: yarn start --scope=@beatrice/revproxy
+    environment:
+      NODE_ENV: production
+      CERT_DIR: /certs
+      PORT_REVPROXY_API: 8080
+      PORT_REVPROXY_HTTP: 80
+      PORT_REVPROXY_HTTPS: 443
+    extra_hosts:
+      - beatrice:10.0.0.1
+    volumes:
+      - /var/www/certs:/certs
+    ports:
+      - 80:80
+      - 443:443
+      - 9054:8080
+    expose:
+      - 80/tcp
+      - 443/tcp
+      - 9054/tcp
+
+  beatrice-acme:
+    image: beatrice-acme
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: yarn start --scope=@beatrice/acme
+    environment:
+      NODE_ENV: development
+      PORT_ACME_API: 8080
+      CERT_DIR: /certs
+      SCHEDULE: "0 0 * * *"
+      MARGIN_DAYS: 45
+      URL_CHALLENGE: beatrice:9053
+      URL_LISTENER: beatrice:9054/restart
+    extra_hosts:
+      - beatrice:10.0.0.1
+    volumes:
+      - /var/www/certs:/certs
+    ports:
+      - 9055:8080
+    expose:
+      - 9055/tcp
