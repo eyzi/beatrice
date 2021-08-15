@@ -16,10 +16,10 @@ services:
     volumes:
       - /var/www/certs:/certs
     ports:
-      - 53:53
+      - 2053:53
       - 9053:8080
     expose:
-      - 53
+      - 2053
       - 9053/tcp
 
   beatrice-revproxy:
