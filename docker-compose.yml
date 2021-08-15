@@ -1,7 +1,7 @@
 version: "3.4"
 
 services:
-  beatrice-dns:
+  dns:
     image: beatrice-dns
     build:
       context: .
@@ -20,7 +20,7 @@ services:
       - "2053:53/udp"
       - "9053:8080/tcp"
 
-  beatrice-revproxy:
+  revproxy:
     image: beatrice-revproxy
     build:
       context: .
@@ -41,7 +41,7 @@ services:
       - "443:443/tcp"
       - "9054:8080/tcp"
 
-  beatrice-acme:
+  acme:
     image: beatrice-acme
     build:
       context: .
