@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/acme",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Acme Server",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/acme#readme",
@@ -56,7 +56,7 @@
     "spec": "__tests__/**/*.test.ts"
   },
   "dependencies": {
-    "@beatrice/common": "^0.4.0",
+    "@beatrice/common": "^1.0.0",
     "@fidm/x509": "^1.2.1",
     "@root/csr": "^0.8.1",
     "@root/keypairs": "^0.10.1",
@@ -72,11 +72,11 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.21",
+    "@types/express": "^4.17.13",
     "@types/mocha": "^9.0.0",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^16.6.1",
     "@types/sinon": "^10.0.2",
-    "@types/express": "^4.17.13",
-    "@types/mongoose": "^5.11.97",
     "chai": "^4.3.4",
     "mocha": "^9.0.3",
     "nyc": "^15.1.0",
