@@ -10,4 +10,4 @@ import {
 export default async (
 	recordRepository: Retrievable<Record>,
 	id: Id
-): Promise<Record | null> => persistenceGet(recordRepository, id)
+): Promise<Record | null> => persistenceGet(recordRepository)(id)

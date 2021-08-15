@@ -1,4 +1,4 @@
 export type Certificate = {
-	privateKey: string | null;
-	certificate: string | null;
+	validTo: Date,
+	validFrom?: Date
 }

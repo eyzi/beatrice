@@ -10,4 +10,4 @@ import {
 export default async (
 	recordRepository: Queryable<Record, RecordQuery>,
 	query: RecordQuery
-): Promise<Record[]> => persistenceQuery(recordRepository, query)
+): Promise<Record[]> => persistenceQuery(recordRepository)(query)

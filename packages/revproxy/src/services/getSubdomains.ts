@@ -1,4 +1,5 @@
 import {
+	persistenceQuery,
 	Queryable
 } from "@beatrice/common"
 import {
@@ -8,4 +9,4 @@ import {
 
 export default async (
 	subdomainRepository: Queryable<Subdomain, SubdomainQuery>
-): Promise<Subdomain[]> => subdomainRepository.query({})
+): Promise<Subdomain[]> => persistenceQuery(subdomainRepository)({})

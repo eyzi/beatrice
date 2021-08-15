@@ -5,18 +5,19 @@
   "main": "index.js",
   "scripts": {
     "build": "lerna bootstrap && yarn build:common && lerna run build --parallel",
-    "build:clean": "yarn clean && yarn build:install",
     "build:common": "lerna run build:common --parallel",
     "build:install": "lerna bootstrap && yarn build",
     "build:test": "yarn build && yarn test",
-    "clean": "lerna run clean --parallel",
+    "clean": "lerna run clean --parallel --no-bail",
+    "clean:build": "yarn clean && yarn build:install",
+    "clean:build:test": "yarn clean:build && yarn test",
     "lerna:link": "lerna run lerna:link --parallel",
     "lerna:publish": "lerna publish",
     "lerna:version": "lerna version --conventional-commits --yes",
     "start": "lerna run start --parallel",
     "start:dev": "lerna run start:dev --parallel",
     "start:dev:build": "yarn build && lerna run start:dev --parallel",
-    "start:pm2": "yarn build:clean && lerna run start:pm2 --parallel --since main",
+    "start:pm2": "yarn clean:build && lerna run start:pm2 --parallel --since main",
     "test": "lerna run test --parallel"
   },
   "repository": {

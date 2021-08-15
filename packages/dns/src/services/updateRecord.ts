@@ -11,4 +11,4 @@ export default async (
 	recordRepository: Updatable<Record>,
 	record: Record | Id,
 	body: Partial<Record>
-): Promise<Record | null> => persistenceUpdate(recordRepository, record, body)
+): Promise<Record | null> => persistenceUpdate(recordRepository)(record, body)

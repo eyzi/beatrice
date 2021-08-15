@@ -2,7 +2,7 @@ const Redbird = require("redbird")
 import { existsSync } from "fs"
 import { resolve } from "path"
 import {
-	Certificate
+	SSL
 } from "@beatrice/common"
 import {
 	Subdomain,
@@ -15,7 +15,7 @@ const CERT_FULL_FILE = "fullchain.pem"
 const getSSL = async (
 	certDir: string,
 	certificateId: string
-): Promise<Certificate> => {
+): Promise<SSL> => {
 	if (
 		!certDir ||
 		!existsSync(resolve(certDir)) ||

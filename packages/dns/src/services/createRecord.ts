@@ -10,4 +10,4 @@ import {
 export default async (
 	recordRepository: Creatable<Record>,
 	record: OmitId<Record>
-): Promise<Record | null> => persistenceCreate(recordRepository, record)
+): Promise<Record | null> => persistenceCreate(recordRepository)(record)
