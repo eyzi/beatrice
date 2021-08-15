@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.0.0...@beatrice/revproxy@1.1.0) (2021-08-15)
+
+**Note:** Version bump only for package @beatrice/revproxy
+
+
+
+
+
 # 1.0.0 (2021-08-15)
 
 

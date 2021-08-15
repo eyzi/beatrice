@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/dns",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "DNS",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/dns#readme",
@@ -68,7 +68,7 @@
     "sinon": "^11.1.2"
   },
   "dependencies": {
-    "@beatrice/common": "^1.0.0",
+    "@beatrice/common": "^1.1.0",
     "dnsd": "^0.9.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
