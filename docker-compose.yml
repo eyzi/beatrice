@@ -16,11 +16,9 @@ services:
     volumes:
       - /var/www/certs:/certs
     ports:
-      - "2053:53"
-      - "9053:8080"
-    expose:
-      - 2053
-      - 9053
+      - "2053:53/tcp"
+      - "2053:53/udp"
+      - "9053:8080/tcp"
 
   beatrice-revproxy:
     image: beatrice-revproxy
@@ -39,13 +37,9 @@ services:
     volumes:
       - /var/www/certs:/certs
     ports:
-      - "80:80"
-      - "443:443"
-      - "9054:8080"
-    expose:
-      - 80
-      - 443
-      - 9054
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "9054:8080/tcp"
 
   beatrice-acme:
     image: beatrice-acme
@@ -66,6 +60,4 @@ services:
     volumes:
       - /var/www/certs:/certs
     ports:
-      - "9055:8080"
-    expose:
-      - 9055
+      - "9055:8080/tcp"
