@@ -5,22 +5,21 @@ name: Yarn Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: Use actions/checkout@v2
-    - uses: borales/actions-yarn@v2.0.0
-      name: Install dependencies
-      with:
-        cmd: install
-    - uses: borales/actions-yarn@v2.0.0
-      name: Run Test
-      with:
-        cmd: test
+      - uses: actions/checkout@v2
+        name: Use actions/checkout@v2
+      - uses: borales/actions-yarn@v2.0.0
+        name: Install dependencies
+        with:
+          cmd: build:install
+      - uses: borales/actions-yarn@v2.0.0
+        name: Run Test
+        with:
+          cmd: test
