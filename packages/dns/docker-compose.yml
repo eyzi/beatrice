@@ -10,7 +10,7 @@ services:
     command: yarn start --scope=@beatrice/dns
     environment:
       NODE_ENV: production
-      PORT_DNS_APP: 50
+      PORT_DNS_APP: 53
       PORT_DNS_API: 80
     extra_hosts:
       - beatrice:10.0.0.1
