@@ -12,6 +12,7 @@
     "clean:build": "yarn clean && yarn build",
     "clean:build:test": "yarn clean:build && yarn test",
     "deploy": "lerna run deploy --since --parallel --no-bail",
+    "deploy:all": "lerna run deploy --parallel --no-bail",
     "deploy:down": "lerna run deploy:down --parallel --no-bail",
     "lerna:link": "lerna run lerna:link --parallel",
     "lerna:version": "lerna version --conventional-commits --yes",
