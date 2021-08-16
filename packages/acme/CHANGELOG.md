@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.1.3...@beatrice/acme@1.2.0) (2021-08-16)
+
+
+### Features
+
+* auto-restart containers ([ce93632](https://github.com/eyzi/beatrice/commit/ce93632891a17775196f821e0ea856fa68fc0e20))
+
+
+
+
+
 ## [1.1.3](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.1.2...@beatrice/acme@1.1.3) (2021-08-16)
 
 **Note:** Version bump only for package @beatrice/acme
