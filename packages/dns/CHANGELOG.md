@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.1.1...@beatrice/dns@1.1.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* docker dns port ([6157982](https://github.com/eyzi/beatrice/commit/615798265e9dfbad61e9c8b6a2a96ee3e0de2378))
+
+
+
+
+
 ## [1.1.1](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.1.0...@beatrice/dns@1.1.1) (2021-08-16)
 
 **Note:** Version bump only for package @beatrice/dns
