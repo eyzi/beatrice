@@ -1,0 +1,24 @@
+version: "3.4"
+
+services:
+  revproxy:
+    container_name: beatrice-revproxy
+    image: beatrice-revproxy
+    build:
+      context: ../..
+      dockerfile: ./packages/revproxy/Dockerfile
+    command: yarn start --scope=@beatrice/revproxy
+    environment:
+      NODE_ENV: production
+      CERT_DIR: /certs
+      PORT_REVPROXY_API: 8080
+      PORT_REVPROXY_HTTP: 80
+      PORT_REVPROXY_HTTPS: 443
+    extra_hosts:
+      - beatrice:10.0.0.1
+    volumes:
+      - /var/www/certs:/certs
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9054:8080"

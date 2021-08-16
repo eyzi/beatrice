@@ -78,8 +78,8 @@ const handleDeleteRecord = (
 }
 
 export default async (
-	port?: string,
-	repository?: Repository<Record, RecordQuery>
+	port: string,
+	repository: Repository<Record, RecordQuery>
 ) => {
 	if (!port) return
 

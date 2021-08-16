@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  dns:
+    container_name: beatrice-dns
+    image: beatrice-dns
+    build:
+      context: ../..
+      dockerfile: ./packages/dns/Dockerfile
+    command: yarn start --scope=@beatrice/dns
+    environment:
+      NODE_ENV: production
+      PORT_DNS_APP: 50
+      PORT_DNS_API: 80
+    extra_hosts:
+      - beatrice:10.0.0.1
+    volumes:
+      - /var/www/certs:/certs
+    ports:
+      - "2053:53"
+      - "9053:80"

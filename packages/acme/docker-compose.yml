@@ -1,0 +1,24 @@
+version: "3.4"
+
+services:
+  acme:
+    container_name: beatrice-acme
+    image: beatrice-acme
+    build:
+      context: ../..
+      dockerfile: ./packages/acme/Dockerfile
+    command: yarn start --scope=@beatrice/acme
+    environment:
+      NODE_ENV: production
+      PORT_ACME_API: 80
+      CERT_DIR: /certs
+      SCHEDULE: "0 0 * * *"
+      MARGIN_DAYS: 45
+      URL_CHALLENGE: beatrice:9053
+      URL_LISTENER: beatrice:9054/restart
+    extra_hosts:
+      - beatrice:10.0.0.1
+    volumes:
+      - /var/www/certs:/certs
+    ports:
+      - "9055:80"

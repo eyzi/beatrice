@@ -76,9 +76,9 @@ const requestHandler = (
 
 export default (
 	port: string,
-	repository?: Repository<Record, RecordQuery>
+	repository: Repository<Record, RecordQuery>
 ) => {
-	const server = dnsd.createServer(requestHandler)
+	const server = dnsd.createServer(requestHandler(repository))
 	registerSOA(server, repository)
 	server.on("error", (message: string | object) => {
 		console.error(message);
