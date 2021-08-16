@@ -8,6 +8,9 @@
   "command": {
     "version": {
       "push": true
+    },
+    "publish": {
+      "message": "chore(release): version bump"
     }
   }
 }
