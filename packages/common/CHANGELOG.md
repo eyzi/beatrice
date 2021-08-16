@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/eyzi/beatrice/compare/@beatrice/common@1.1.0...@beatrice/common@1.1.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* revproxy ssl ([887f1fb](https://github.com/eyzi/beatrice/commit/887f1fb2dabc7a141b62636e6ae4fb21e8221330))
+
+
+
+
+
 # [1.1.0](https://github.com/eyzi/beatrice/compare/@beatrice/common@1.0.0...@beatrice/common@1.1.0) (2021-08-15)
 
 **Note:** Version bump only for package @beatrice/common

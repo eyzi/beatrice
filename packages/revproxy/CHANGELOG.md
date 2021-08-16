@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.1.2...@beatrice/revproxy@1.1.3) (2021-08-16)
+
+
+### Bug Fixes
+
+* revproxy ssl ([887f1fb](https://github.com/eyzi/beatrice/commit/887f1fb2dabc7a141b62636e6ae4fb21e8221330))
+
+
+
+
+
 ## [1.1.2](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.1.1...@beatrice/revproxy@1.1.2) (2021-08-16)
 
 **Note:** Version bump only for package @beatrice/revproxy
