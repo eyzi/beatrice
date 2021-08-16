@@ -2,20 +2,19 @@ const Redbird = require("redbird")
 import { existsSync } from "fs"
 import { resolve } from "path"
 import {
-	SSL
+	SSL,
+	CERT_KEY_FILE,
+	CERT_FULL_FILE
 } from "@beatrice/common"
 import {
 	Subdomain,
 	SubdomainController
 } from "../../types"
 
-const CERT_KEY_FILE = "privkey.pem"
-const CERT_FULL_FILE = "fullchain.pem"
-
-const getSSL = async (
+const getSSL = (
 	certDir: string,
 	certificateId: string
-): Promise<SSL> => {
+): SSL => {
 	if (
 		!certDir ||
 		!existsSync(resolve(certDir)) ||
@@ -28,20 +27,21 @@ const getSSL = async (
 	};
 }
 
+const toRedbirdSSL = (
+	ssl: SSL
+) => ({
+	key: ssl.privateKey,
+	cert: ssl.certificate
+})
+
 const initStarter = (
 	proxy: any,
 	certDir: string
 ) => async (
 	subdomain: Subdomain
 ) => {
-	const {
-		privateKey,
-		certificate
-	} = await getSSL(certDir, subdomain.certificateId)
-	proxy.register(subdomain.domain, subdomain.url, {
-		key: privateKey,
-		cert: certificate
-	})
+	const ssl = toRedbirdSSL(getSSL(certDir, subdomain.certificateId))
+	proxy.register(subdomain.domain, subdomain.url, { ssl })
 	return subdomain
 }
 

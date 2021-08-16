@@ -14,8 +14,6 @@ services:
       PORT_DNS_API: 80
     extra_hosts:
       - beatrice:10.0.0.1
-    volumes:
-      - /var/www/certs:/certs
     ports:
       - "2053:53/tcp"
       - "2053:53/udp"

@@ -3,7 +3,6 @@ require("dotenv").config()
 import startApp from "./app"
 
 const {
-	PORT_REVPROXY_APP,
 	PORT_REVPROXY_API,
 	PORT_REVPROXY_HTTP,
 	PORT_REVPROXY_HTTPS,
