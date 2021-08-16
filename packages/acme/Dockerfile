@@ -1,5 +1,5 @@
-FROM node:latest
+FROM node:alpine
 WORKDIR /app
-RUN npm install -g lerna typescript
 COPY . .
-RUN yarn build:install --scope=@beatrice/acme
+RUN npm install -g lerna typescript \
+	&& yarn build:install --scope=@beatrice/acme
