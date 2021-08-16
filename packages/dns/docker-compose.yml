@@ -8,6 +8,7 @@ services:
       context: ../..
       dockerfile: ./packages/dns/Dockerfile
     command: yarn start --scope=@beatrice/dns
+    restart: unless-stopped
     environment:
       NODE_ENV: production
       PORT_DNS_APP: 53

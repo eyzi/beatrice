@@ -8,6 +8,7 @@ services:
       context: ../..
       dockerfile: ./packages/acme/Dockerfile
     command: yarn start --scope=@beatrice/acme
+    restart: unless-stopped
     environment:
       NODE_ENV: production
       PORT_ACME_API: 80
