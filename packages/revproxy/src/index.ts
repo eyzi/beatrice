@@ -17,5 +17,5 @@ startApp({
 	httpsPort: PORT_REVPROXY_HTTPS,
 	certDir: CERT_DIR,
 	dbString: DB_STRING,
-	useHttp2: USE_HTTP2,
+	useHttp2: USE_HTTP2 === "true",
 });

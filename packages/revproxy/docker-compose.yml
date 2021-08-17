@@ -15,7 +15,7 @@ services:
       PORT_REVPROXY_API: 8080
       PORT_REVPROXY_HTTP: 80
       PORT_REVPROXY_HTTPS: 443
-      USE_HTTP2: true
+      USE_HTTP2: "true"
     extra_hosts:
       - beatrice:10.0.0.1
     volumes:
