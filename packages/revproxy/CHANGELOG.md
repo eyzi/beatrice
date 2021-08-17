@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.3.0...@beatrice/revproxy@1.3.1) (2021-08-17)
+
+
+### Bug Fixes
+
+* use string for environment variables ([52fddd8](https://github.com/eyzi/beatrice/commit/52fddd8269ec63b252b4b89c9f8ff55289de52f8))
+
+
+
+
+
 # [1.3.0](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.2.2...@beatrice/revproxy@1.3.0) (2021-08-17)
 
 
