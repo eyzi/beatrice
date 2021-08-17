@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.2.2...@beatrice/revproxy@1.3.0) (2021-08-17)
+
+
+### Features
+
+* enable http2 for revproxy ([9bd0636](https://github.com/eyzi/beatrice/commit/9bd0636ad148bf90e9e5f375ed694aaaa0d855fe))
+
+
+
+
+
 ## [1.2.2](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.2.1...@beatrice/revproxy@1.2.2) (2021-08-16)
 
 **Note:** Version bump only for package @beatrice/revproxy
