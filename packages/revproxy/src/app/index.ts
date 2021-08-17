@@ -17,14 +17,15 @@ export default async ({
 	httpPort,
 	httpsPort,
 	certDir,
-	dbString
+	dbString,
+	useHttp2
 }: any) => {
 	if (!httpPort || !httpsPort) throw new Error("HTTP and HTTPS ports required!")
 
 	const controller = createRedbirdApp({
 		httpPort,
 		httpsPort,
-		useHttp2: false,
+		useHttp2,
 		logName: name,
 		isVerbose: true,
 		certDir
