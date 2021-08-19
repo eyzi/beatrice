@@ -3,7 +3,7 @@ version: "3.4"
 services:
   dns:
     container_name: beatrice-dns
-    image: beatrice-dns
+    image: beatrice-dns:${VERSION}
     build:
       context: ../..
       dockerfile: ./packages/dns/Dockerfile

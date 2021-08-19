@@ -3,7 +3,7 @@ version: "3.4"
 services:
   revproxy:
     container_name: beatrice-revproxy
-    image: beatrice-revproxy
+    image: beatrice-revproxy:${VERSION}
     build:
       context: ../..
       dockerfile: ./packages/revproxy/Dockerfile

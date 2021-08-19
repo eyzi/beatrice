@@ -22,7 +22,7 @@
     "build": "tsc",
     "build:clean": "yarn clean && yarn build",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
-    "deploy": "docker-compose up --build -d",
+    "deploy": "VERSION=${npm_package_version} docker-compose up --build -d",
     "deploy:down": "docker-compose down",
     "lerna:link": "lerna link",
     "start": "node .",
