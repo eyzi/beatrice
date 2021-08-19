@@ -37,6 +37,8 @@ export default async ({
 	}
 	if (!newSSL) return { ...acmeAccount, renewed: false, message: "Certificate generator failed" }
 
+	console.log(`Renewed certificate for domains ${acmeAccount.domains.toString()}`);
+
 	const newAcmeAccount: AcmeAccount = { ...acmeAccount, ...newSSL }
 
 	const { id, ...acmeAccountBody } = newAcmeAccount
