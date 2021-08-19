@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.2.3...@beatrice/acme@1.3.0) (2021-08-19)
+
+
+### Features
+
+* add log for successful renew ([4591acf](https://github.com/eyzi/beatrice/commit/4591acfdbf91fd45ed8f6dd267c207d4c2bf6932))
+
+
+
+
+
 ## [1.2.3](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.2.2...@beatrice/acme@1.2.3) (2021-08-19)
 
 **Note:** Version bump only for package @beatrice/acme
