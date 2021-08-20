@@ -22,7 +22,7 @@
     "url": "git+https://github.com/eyzi/beatrice.git"
   },
   "scripts": {
-    "build:common": "npx -p typescritp tsc",
+    "build:common": "npx -p typescript tsc",
     "build:clean": "yarn clean && yarn build",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
     "lerna:link": "npx lerna link",
