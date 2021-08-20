@@ -10,16 +10,14 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test-beatrice:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v2
-        name: Use actions/checkout@v2
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.3.0
         name: Install dependencies
         with:
           cmd: build:install
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: borales/actions-yarn@v2.3.0
         name: Run Test
         with:
           cmd: test
