@@ -1,11 +1,7 @@
 # `revproxy`
 
-> TODO: description
+Reverse Proxy server to map subdomain calls to internal services
 
-## Usage
-
-```
-const revproxy = require('revproxy');
-
-// TODO: DEMONSTRATE API
-```
+HTTP port: 80
+HTTPS port: 443
+API port: 9054
