@@ -26,9 +26,9 @@ yarn deploy:all
 
 _Can be changed in each package's docker-compose.yml file_
 
-DNS server: 2053
-DNS server API: 9053
-Revproxy server (HTTP): 80
-Revproxy server (HTTPS): 443
-Revproxy server API: 9054
-ACME server API: 9055
+- DNS server: 2053
+- DNS server API: 9053
+- Revproxy server (HTTP): 80
+- Revproxy server (HTTPS): 443
+- Revproxy server API: 9054
+- ACME server API: 9055
