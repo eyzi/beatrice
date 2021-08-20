@@ -26,7 +26,7 @@ yarn deploy:all
 
 _Can be changed in each package's docker-compose.yml file_
 
-- DNS server: 2053
+- DNS server: 2053 (Default standard is 53/tcp+udp)
 - DNS server API: 9053
 - Revproxy server (HTTP): 80
 - Revproxy server (HTTPS): 443
