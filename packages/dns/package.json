@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/dns",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "DNS",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/dns#readme",
