@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/revproxy",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Reverse Proxy Server",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/revproxy#readme",
