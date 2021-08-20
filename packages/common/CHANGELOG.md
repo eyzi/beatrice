@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/eyzi/beatrice/compare/@beatrice/common@1.1.3...@beatrice/common@1.1.4) (2021-08-20)
+
+
+### Bug Fixes
+
+* typo ([66d302c](https://github.com/eyzi/beatrice/commit/66d302c3eba10984d9d7b539af406526c6afaa76))
+
+
+
+
+
 ## [1.1.3](https://github.com/eyzi/beatrice/compare/@beatrice/common@1.1.2...@beatrice/common@1.1.3) (2021-08-20)
 
 **Note:** Version bump only for package @beatrice/common
