@@ -22,11 +22,11 @@
     "url": "git+https://github.com/eyzi/beatrice.git"
   },
   "scripts": {
-    "build:common": "tsc",
+    "build:common": "npx -p typescritp tsc",
     "build:clean": "yarn clean && yarn build",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
-    "lerna:link": "lerna link",
-    "test": "nyc mocha"
+    "lerna:link": "npx lerna link",
+    "test": "npx nyc mocha"
   },
   "bugs": {
     "url": "https://github.com/eyzi/beatrice/issues"

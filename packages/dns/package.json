@@ -19,17 +19,16 @@
     "url": "git+https://github.com/eyzi/beatrice.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npx -p typescript tsc",
     "build:clean": "yarn clean && yarn build",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
     "deploy": "VERSION=${npm_package_version} docker-compose up --build -d",
     "deploy:down": "docker-compose down",
-    "lerna:link": "lerna link",
+    "lerna:link": "npx lerna link",
     "start": "node .",
-    "start:dev": "ts-node src/index.ts",
+    "start:dev": "npx ts-node src/index.ts",
     "start:dev:build": "yarn build && ts-node src/index.ts",
-    "start:pm2": "pm2 start ecosystem.json",
-    "test": "nyc mocha"
+    "test": "npx nyc mocha"
   },
   "bugs": {
     "url": "https://github.com/eyzi/beatrice/issues"

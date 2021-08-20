@@ -21,7 +21,5 @@
 **/values.dev.yaml
 **/.nyc_output
 **/__tests__
-**/tsconfig.tsbuildinfo
-node_modules
 certs
 README.md

@@ -1,5 +1,8 @@
-FROM node:alpine
+FROM node:alpine AS base
 WORKDIR /app
 COPY . .
-RUN npm install -g lerna typescript \
-	&& yarn build:install --scope=@beatrice/dns
+RUN yarn build:install --scope=@beatrice/dns
+
+FROM node:alpine
+WORKDIR /app
+COPY --from=base /app .
