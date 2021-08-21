@@ -1,19 +1,21 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Deploy
+name: Test
 
 on:
   push:
     branches: [main]
 
 jobs:
-  beatrice-deploy:
+  beatrice-test:
     runs-on: self-hosted
     steps:
       - uses: borales/actions-yarn@v2.3.0
-        name: Deploy
+        name: Install dependencies
         with:
-          cmd: deploy:all
-      - name: Prune unused images
-        run: docker image prune -af
+          cmd: build:install
+      - uses: borales/actions-yarn@v2.3.0
+        name: Run Test
+        with:
+          cmd: test
