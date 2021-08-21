@@ -2,7 +2,7 @@
 
 Home Server
 
-![Build Test](https://github.com/eyzi/beatrice/actions/workflows/yarn.yml/badge.svg)
+![Build Test](https://github.com/eyzi/beatrice/actions/workflows/dev-test.yml/badge.svg)
 
 ## Requirements
 
