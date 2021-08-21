@@ -11,15 +11,14 @@
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo && npx lerna run clean --parallel --no-bail",
     "clean:build": "yarn clean && yarn build",
     "clean:build:test": "yarn clean:build && yarn test",
-    "deploy": "yarn clean && lerna run deploy --since --parallel --no-bail",
-    "deploy:all": "yarn clean && lerna run deploy --parallel --no-bail",
+    "deploy": "yarn clean && npx lerna run deploy --since --parallel --no-bail",
+    "deploy:all": "yarn clean && npx lerna run deploy --parallel --no-bail",
     "deploy:down": "npx lerna run deploy:down --parallel --no-bail",
     "lerna:link": "npx lerna run lerna:link --parallel",
     "lerna:version": "npx lerna version --conventional-commits --yes",
     "start": "npx lerna run start --parallel",
     "start:dev": "npx lerna run start:dev --parallel --no-bail",
-    "start:dev:build": "yarn clean && yarn build:install && lerna run start:dev --parallel --no-bail",
-    "start:pm2": "yarn clean:build && lerna run start:pm2 --parallel --since main",
+    "start:dev:build": "yarn clean && yarn build:install && npx lerna run start:dev --parallel --no-bail",
     "test": "npx lerna run test --parallel"
   },
   "repository": {
