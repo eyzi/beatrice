@@ -17,7 +17,7 @@ services:
       PORT_REVPROXY_HTTPS: 443
       USE_HTTP2: "false"
     extra_hosts:
-      - beatrice:10.0.0.1
+      - beatrice:host-gateway
     volumes:
       - /var/www/certs:/certs
     ports:

@@ -18,7 +18,7 @@ services:
       URL_CHALLENGE: beatrice:9053
       URL_LISTENER: beatrice:9054/restart
     extra_hosts:
-      - beatrice:10.0.0.1
+      - beatrice:host-gateway
     volumes:
       - /var/www/certs:/certs
     ports:

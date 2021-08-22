@@ -5,7 +5,7 @@
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/dns#readme",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "ISC",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
@@ -22,7 +22,7 @@
     "build": "npx -p typescript tsc",
     "build:clean": "yarn clean && yarn build",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
-    "deploy": "VERSION=${npm_package_version} docker-compose up --build -d",
+    "deploy": "VERSION=$npm_package_version docker-compose up --build -d",
     "deploy:down": "docker-compose down",
     "lerna:link": "npx lerna link",
     "start": "node .",

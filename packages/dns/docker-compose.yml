@@ -14,7 +14,7 @@ services:
       PORT_DNS_APP: 53
       PORT_DNS_API: 80
     extra_hosts:
-      - beatrice:10.0.0.1
+      - beatrice:host-gateway
     ports:
       - "2053:53/tcp"
       - "2053:53/udp"
