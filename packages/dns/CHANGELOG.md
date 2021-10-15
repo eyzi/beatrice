@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.2.8...@beatrice/dns@1.3.0) (2021-10-15)
+
+
+### Features
+
+* add data in query ([583318f](https://github.com/eyzi/beatrice/commit/583318f5850b52a249f868a609b85e28c5477f25))
+
+
+
+
+
 ## [1.2.8](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.2.7...@beatrice/dns@1.2.8) (2021-08-22)
 
 **Note:** Version bump only for package @beatrice/dns

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.3.5...@beatrice/acme@1.3.6) (2021-10-15)
+
+
+### Bug Fixes
+
+* add type on catch parameter ([863d508](https://github.com/eyzi/beatrice/commit/863d508cfa735a87b40c2e862d17cd06ef6a7486))
+
+
+
+
+
 ## [1.3.5](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.3.4...@beatrice/acme@1.3.5) (2021-08-22)
 
 **Note:** Version bump only for package @beatrice/acme
