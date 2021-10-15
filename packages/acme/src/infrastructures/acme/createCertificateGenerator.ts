@@ -86,7 +86,7 @@ const initGenerator = (
 			privateKey: serverPem,
 			certificate: `${pems.cert}\n${pems.chain}\n`
 		};
-	} catch (error) {
+	} catch (error: any) {
 		throw new Error(error);
 	}
 }
