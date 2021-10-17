@@ -80,7 +80,7 @@ const initGenerator =
     logger(`[ACME] Generating PEMs`);
 
     try {
-      const pems = await acme.certificates.create({
+      const pems: any = await acme.certificates.create({
         account: acmeAccount,
         accountKey: account.key,
         csr,
