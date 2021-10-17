@@ -37,6 +37,7 @@ export default async ({
   try {
     newSSL = await generateCertificate(certificateGenerator)(acmeAccount);
   } catch (error: any) {
+    console.log("Generate Certificate failed", error);
     return { ...acmeAccount, renewed: false, message: error.toString() };
   }
   if (!newSSL)
