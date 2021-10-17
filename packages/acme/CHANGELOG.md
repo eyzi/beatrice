@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.3.6...@beatrice/acme@1.4.0) (2021-10-17)
+
+
+### Bug Fixes
+
+* fix type ([3bb4bfa](https://github.com/eyzi/beatrice/commit/3bb4bfad6fde302f9b4de054b8f428c02d880053))
+
+
+### Features
+
+* use delete query and add logs ([8a6e54c](https://github.com/eyzi/beatrice/commit/8a6e54c90bec237fe66ae18d3ec71e0ddc0b8eb5))
+
+
+
+
+
 ## [1.3.6](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.3.5...@beatrice/acme@1.3.6) (2021-10-15)
 
 
