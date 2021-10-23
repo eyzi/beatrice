@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.4.1...@beatrice/acme@1.5.0) (2021-10-23)
+
+
+### Features
+
+* use acme-v2 ([1a703fa](https://github.com/eyzi/beatrice/commit/1a703fa54a709822142ff2638abda7fe817133ae))
+
+
+
+
+
 ## [1.4.1](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.4.0...@beatrice/acme@1.4.1) (2021-10-23)
 
 
