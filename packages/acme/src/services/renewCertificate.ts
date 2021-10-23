@@ -36,8 +36,6 @@ export default async ({
 
   if (force) {
     Object.assign(acmeAccount, {
-      privateKey: null,
-      certificate: null,
       key: await keyGenerator.generate(undefined),
     });
     await persistenceUpdate(acmeAccountRepository)(acmeAccount.id, acmeAccount);
