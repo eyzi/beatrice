@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.4.0...@beatrice/acme@1.4.1) (2021-10-23)
+
+
+### Bug Fixes
+
+* renew acme account key when force is true ([c27facb](https://github.com/eyzi/beatrice/commit/c27facb5ac0d5709134df437896a1cc62fd07685))
+* update certificate renewal type and pass tests ([76405e2](https://github.com/eyzi/beatrice/commit/76405e2a81f1f17c98ac2989c492dd3409e6f051))
+
+
+
+
+
 # [1.4.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.3.6...@beatrice/acme@1.4.0) (2021-10-17)
 
 
