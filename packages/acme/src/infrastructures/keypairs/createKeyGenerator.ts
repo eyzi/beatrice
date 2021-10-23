@@ -1,16 +1,15 @@
-const Keypairs = require("@root/keypairs")
-import {
-	KeyGenerator
-} from "../../types"
-import {
-	KeyGenKeypair
-} from "./types"
+const Keypairs = require("@root/keypairs");
+import { KeyGenerator } from "../../types";
+import { KeyGenKeypair } from "./types";
 
-const initGenerator = () => async () => Keypairs.generate({
-		kty: "RSA",
-		format: "jwk"
-	}).then((keypair: KeyGenKeypair) => keypair.private)
+const initGenerator = () =>
+  Keypairs.generate({
+    kty: "RSA",
+    format: "jwk",
+  }).then((keypair: KeyGenKeypair) => keypair.private);
 
-export default (): KeyGenerator => ({
-	generate: initGenerator()
-})
+const keyGenerator: KeyGenerator = {
+  generate: initGenerator,
+};
+
+export default keyGenerator;

@@ -5,6 +5,7 @@ import createCertificateRepository from "../infrastructures/fs/createCertificate
 import createAcmeAccountRepository from "../infrastructures/mongodb/createAcmeAccountRepository";
 import createChallengePlugin from "../infrastructures/beatrice-dns/createChallengePlugin";
 import createCertificateParser from "../infrastructures/x509/createCertificateParser";
+import createKeyGenerator from "../infrastructures/keypairs/createKeyGenerator";
 import {
   AcmeAccount,
   AcmeAccountRepository,
@@ -20,6 +21,7 @@ const renewerCreator =
     certificateParser,
     certificateRepository,
     acmeAccountRepository,
+    createKeyGenerator,
     renewalListeners,
   }: Omit<CertificateRenewer, "acmeAccount" | "force">) =>
   async (acmeAccount: AcmeAccount, force: boolean = false) =>
@@ -29,6 +31,7 @@ const renewerCreator =
       certificateRepository,
       acmeAccountRepository,
       renewalListeners,
+      createKeyGenerator,
       acmeAccount,
       force,
     });
@@ -69,6 +72,7 @@ export default async ({
     certificateParser: parser,
     certificateRepository: certRepository,
     acmeAccountRepository,
+    createKeyGenerator,
     renewalListeners: [listener],
     marginDays,
   });

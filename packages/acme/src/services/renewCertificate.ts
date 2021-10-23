@@ -15,6 +15,7 @@ export default async ({
   certificateParser,
   certificateRepository,
   acmeAccountRepository,
+  createKeyGenerator,
   renewalListeners,
   marginDays = 30,
   force = false,
@@ -32,6 +33,15 @@ export default async ({
       renewed: false,
       message: "Certificate is not due",
     };
+
+  if (force) {
+    Object.assign(acmeAccount, {
+      privateKey: null,
+      certificate: null,
+      key: await createKeyGenerator.generate(undefined),
+    });
+    await persistenceUpdate(acmeAccountRepository)(acmeAccount.id, acmeAccount);
+  }
 
   let newSSL: SSL | null;
   try {
