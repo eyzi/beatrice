@@ -1,5 +1,5 @@
 import { resolve } from "path";
-const ACME = require("acme");
+const ACME = require("acme-v2");
 const pkg = require(resolve(__dirname, "..", "..", "..", "package.json"));
 const punycode = require("punycode");
 const Keypairs = require("@root/keypairs");
