@@ -8,8 +8,6 @@ const initGenerator = () =>
     format: "jwk",
   }).then((keypair: KeyGenKeypair) => keypair.private);
 
-const keyGenerator: KeyGenerator = {
+export default (): KeyGenerator => ({
   generate: initGenerator,
-};
-
-export default keyGenerator;
+});

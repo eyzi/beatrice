@@ -22,7 +22,7 @@ export type CertificateRenewer = {
   certificateParser: CertificateParser;
   certificateRepository: Updatable<SSL> & Retrievable<SSL>;
   acmeAccountRepository: Updatable<AcmeAccount> & Retrievable<AcmeAccount>;
-  createKeyGenerator: KeyGenerator;
+  keyGenerator: KeyGenerator;
   renewalListeners?: Function[];
   marginDays?: number;
   force?: boolean;

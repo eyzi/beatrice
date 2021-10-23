@@ -21,7 +21,7 @@ const renewerCreator =
     certificateParser,
     certificateRepository,
     acmeAccountRepository,
-    createKeyGenerator,
+    keyGenerator,
     renewalListeners,
   }: Omit<CertificateRenewer, "acmeAccount" | "force">) =>
   async (acmeAccount: AcmeAccount, force: boolean = false) =>
@@ -31,7 +31,7 @@ const renewerCreator =
       certificateRepository,
       acmeAccountRepository,
       renewalListeners,
-      createKeyGenerator,
+      keyGenerator,
       acmeAccount,
       force,
     });
@@ -60,6 +60,7 @@ export default async ({
   const generator = createCertificateGenerator(challenge, staging);
   const parser = createCertificateParser();
   const certRepository = createCertificateRepository(certDir);
+  const keyGenerator = createKeyGenerator();
   const acmeAccountRepository =
     await createMongoRepository<AcmeAccountRepository>(
       dbString,
@@ -72,7 +73,7 @@ export default async ({
     certificateParser: parser,
     certificateRepository: certRepository,
     acmeAccountRepository,
-    createKeyGenerator,
+    keyGenerator,
     renewalListeners: [listener],
     marginDays,
   });

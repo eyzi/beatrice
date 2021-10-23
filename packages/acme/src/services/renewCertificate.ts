@@ -15,7 +15,7 @@ export default async ({
   certificateParser,
   certificateRepository,
   acmeAccountRepository,
-  createKeyGenerator,
+  keyGenerator,
   renewalListeners,
   marginDays = 30,
   force = false,
@@ -38,7 +38,7 @@ export default async ({
     Object.assign(acmeAccount, {
       privateKey: null,
       certificate: null,
-      key: await createKeyGenerator.generate(undefined),
+      key: await keyGenerator.generate(undefined),
     });
     await persistenceUpdate(acmeAccountRepository)(acmeAccount.id, acmeAccount);
   }
