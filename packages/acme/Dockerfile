@@ -1,7 +1,7 @@
 FROM node:alpine AS base
 WORKDIR /app
 COPY . .
-RUN yarn build:install --scope=@beatrice/acme
+RUN apk add --no-cache git && yarn build:install --scope=@beatrice/acme
 
 FROM node:alpine
 WORKDIR /app
