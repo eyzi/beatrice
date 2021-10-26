@@ -2464,10 +2464,9 @@ dns-socket@^4.2.2:
   dependencies:
     dns-packet "^5.2.4"
 
-dnsd@^0.9.6:
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/dnsd/-/dnsd-0.9.6.tgz#eee58201602b7039dab44ef9de7f771f0cfcf874"
-  integrity sha1-7uWCAWArcDnatE753n93Hwz8+HQ=
+"dnsd@https://github.com/plexinc/dnsd":
+  version "0.9.5"
+  resolved "https://github.com/plexinc/dnsd#d7a0fcb676bc2553bfe9038bec7ec8635a532271"
   dependencies:
     defaultable "~0.7.2"
     optimist "~0.3.4"
