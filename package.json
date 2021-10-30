@@ -1,7 +1,7 @@
 {
   "name": "beatrice",
   "version": "0.0.0",
-  "description": "A Dummy's Useless Home Server",
+  "description": "A Dummy's Really Useless Home Server",
   "main": "index.js",
   "scripts": {
     "build": "yarn build:common && npx lerna run build --parallel",
