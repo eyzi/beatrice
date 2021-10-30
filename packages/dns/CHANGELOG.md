@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.4.1...@beatrice/dns@1.4.2) (2021-10-30)
+
+
+### Performance Improvements
+
+* handle question error ([8e62994](https://github.com/eyzi/beatrice/commit/8e629940d0bf61add3107556ec97587078c7498a))
+
+
+
+
+
 ## [1.4.1](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.4.0...@beatrice/dns@1.4.1) (2021-10-26)
 
 **Note:** Version bump only for package @beatrice/dns
