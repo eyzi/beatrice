@@ -29,6 +29,7 @@ const initGenerator =
       packageAgent: `${pkg.name}/${pkg.version}`,
       notify: (event: any, details: string | object) => {
         if (event === "error") console.error(details);
+        logger(event, details);
       },
     });
     await acme.init(directoryUrl);
