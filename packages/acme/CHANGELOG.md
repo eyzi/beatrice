@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.5.5...@beatrice/acme@1.6.0) (2021-10-30)
+
+
+### Features
+
+* add notify logger ([2b8b796](https://github.com/eyzi/beatrice/commit/2b8b796d48c2be6da338f7d454dd459a9cef3caa))
+
+
+
+
+
 ## [1.5.5](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.5.4...@beatrice/acme@1.5.5) (2021-10-30)
 
 **Note:** Version bump only for package @beatrice/acme
