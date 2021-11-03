@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.4.5...@beatrice/dns@1.4.6) (2021-11-03)
+
+
+### Bug Fixes
+
+* lowercase record name when saving and querying to allow case-insensitivity ([4ea86ec](https://github.com/eyzi/beatrice/commit/4ea86ec0378528cccbdbf1aeb2e49d1fac1b14ef))
+
+
+
+
+
 ## [1.4.5](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.4.4...@beatrice/dns@1.4.5) (2021-10-30)
 
 **Note:** Version bump only for package @beatrice/dns
