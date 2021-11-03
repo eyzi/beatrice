@@ -15,7 +15,7 @@
     "deploy:all": "yarn clean && npx lerna run deploy --parallel --no-bail",
     "deploy:down": "npx lerna run deploy:down --parallel --no-bail",
     "lerna:link": "npx lerna run lerna:link --parallel",
-    "lerna:version": "npx lerna version --conventional-commits --yes",
+    "lerna:version": "npx lerna version --sign-git-commit --sign-git-tag --conventional-commits --yes",
     "start": "npx lerna run start --parallel",
     "start:dev": "npx lerna run start:dev --parallel --no-bail",
     "start:dev:build": "yarn clean && yarn build:install && npx lerna run start:dev --parallel --no-bail",
