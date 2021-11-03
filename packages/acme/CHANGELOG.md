@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.6.0...@beatrice/acme@1.6.1) (2021-11-03)
+
+**Note:** Version bump only for package @beatrice/acme
+
+
+
+
+
 # [1.6.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.5.5...@beatrice/acme@1.6.0) (2021-10-30)
 
 
