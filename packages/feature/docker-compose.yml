@@ -11,6 +11,7 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
+      PORT_FEATURE_API: 80
     extra_hosts:
       - beatrice:host-gateway
     ports:
