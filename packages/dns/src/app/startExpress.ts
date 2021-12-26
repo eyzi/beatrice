@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { Repository } from "@beatrice/common";
+import { Repository, serveHealth } from "@beatrice/common";
 import { Record, RecordQuery } from "../types";
 import queryRecord from "../services/queryRecord";
 import createRecord from "../services/createRecord";
@@ -87,6 +87,7 @@ export default async (
   const app = express();
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+  serveHealth(app);
 
   app.get("/", handleQueryRecord(repository));
   app.delete("/", handleDeleteQueryRecord(repository));
