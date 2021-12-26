@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/feature",
-  "version": "0.1.2",
+  "version": "0.0.0",
   "description": "Feature Flag Package",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/feature#readme",
