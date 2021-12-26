@@ -1,6 +1,6 @@
 import { v4 } from "public-ip";
 import { NamecheapApiConfig, NameserverInfo } from "./types";
-import { callApi, extractCommandResponse } from "./utils";
+import { callApi, extractCommandResponse, getDomainLevels } from "./utils";
 
 const COMMAND = "namecheap.domains.ns.getInfo";
 
@@ -18,8 +18,9 @@ const getDomainNSInfoResult =
 
 const getDnsList =
   (namecheapApiConfig: NamecheapApiConfig) =>
-  (sld: string, tld: string) =>
+  (domain: string) =>
   async (nameserver: string) => {
+    const [sld, tld] = getDomainLevels(domain);
     return callApi(`https://${namecheapApiConfig.baseUrl}`, {
       Command: COMMAND,
       ApiUser: namecheapApiConfig.username,
@@ -31,7 +32,7 @@ const getDnsList =
       Nameserver: nameserver,
     })
       .then(extractCommandResponse(COMMAND))
-      .then(getDomainNSInfoResult(`${sld}.${tld}`, nameserver));
+      .then(getDomainNSInfoResult(domain, nameserver));
   };
 
 export default getDnsList;

@@ -3,8 +3,8 @@ import { NamecheapApiConfig } from "./types";
 
 const getMultipleNsInfo =
   (apiConfig: NamecheapApiConfig) =>
-  (sld: string, tld: string) =>
+  (domain: string) =>
   async (nameservers: string[]) =>
-    Promise.all(nameservers.map(getNsInfo(apiConfig)(sld, tld)));
+    Promise.all(nameservers.map(getNsInfo(apiConfig)(domain)));
 
 export default getMultipleNsInfo;
