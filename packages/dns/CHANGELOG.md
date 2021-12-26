@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.4.7...@beatrice/dns@1.5.0) (2021-12-26)
+
+
+### Features
+
+* add common `/health` endpoint ([462175f](https://github.com/eyzi/beatrice/commit/462175f1f2b3b1787816eda330a985138946faa6)), closes [#6](https://github.com/eyzi/beatrice/issues/6)
+
+
+
+
+
 ## [1.4.7](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.4.6...@beatrice/dns@1.4.7) (2021-11-03)
 
 **Note:** Version bump only for package @beatrice/dns
