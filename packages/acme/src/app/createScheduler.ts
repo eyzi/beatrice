@@ -11,6 +11,6 @@ export default (
 	accountRepository: RetrievableAll<AcmeAccount>
 ) => {
 	const job = schedule.scheduleJob(cron, async () => {
-		await persistenceGetAll(accountRepository)().then((accounts: AcmeAccount[]) => accounts.map(renewer))
+		await persistenceGetAll(accountRepository)().then((accounts: AcmeAccount[]) => accounts.map(account => renewer(account, false)))
 	})
 }
