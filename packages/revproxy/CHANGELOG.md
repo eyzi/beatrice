@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.4.1...@beatrice/revproxy@1.4.2) (2022-02-01)
+
+
+### Bug Fixes
+
+* set secure to false ([51c7a49](https://github.com/eyzi/beatrice/commit/51c7a49e9f49419d00cfe23b0ecb3b483bfa7acc))
+
+
+
+
+
 ## [1.4.1](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.4.0...@beatrice/revproxy@1.4.1) (2022-02-01)
 
 **Note:** Version bump only for package @beatrice/revproxy
