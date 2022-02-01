@@ -12,6 +12,7 @@ services:
     environment:
       NODE_ENV: production
       CERT_DIR: /certs
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
       PORT_REVPROXY_API: 8080
       PORT_REVPROXY_HTTP: 80
       PORT_REVPROXY_HTTPS: 443
