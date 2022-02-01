@@ -74,6 +74,7 @@ export default ({
 	const proxy = Redbird({
 		host: "0.0.0.0",
 		port: httpPort,
+		secure: false,
 		xfwd: false,
 		ssl,
 		bunyan
