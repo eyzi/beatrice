@@ -21,6 +21,7 @@
   "scripts": {
     "build": "npx -p typescript tsc",
     "build:clean": "yarn clean && yarn build",
+    "build:docker": "cd .. && docker build -f packages/acme .",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
     "deploy": "VERSION=$npm_package_version docker-compose up --build -d",
     "deploy:down": "docker-compose down",
