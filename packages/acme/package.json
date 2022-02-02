@@ -21,7 +21,7 @@
   "scripts": {
     "build": "npx -p typescript tsc",
     "build:clean": "yarn clean && yarn build",
-    "build:docker": "cd .. && docker build -f packages/acme .",
+    "build:docker": "PKG_NAME=$(echo $npm_package_name | sed -e 's|@beatrice/||') && docker build -t $DOCKER_REGISTRY/beatrice-$PKG_NAME:$npm_package_version -t $DOCKER_REGISTRY/beatrice-$PKG_NAME:latest --build-arg package_name=$PKG_NAME ../..",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
     "deploy": "VERSION=$npm_package_version docker-compose up --build -d",
     "deploy:down": "docker-compose down",
