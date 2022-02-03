@@ -67,4 +67,5 @@ jobs:
       - name: Push new version
         run: git push --follow-tags origin ${{github.ref_name}}
       - name: Clean docker images
-        run: docker rmi -f $(docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*") > /dev/null
+        run: docker rmi -f $(docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*" --format {{.ID}}) > /dev/null
+        continue-on-error: true
