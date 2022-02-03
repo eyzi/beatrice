@@ -21,7 +21,7 @@
   "scripts": {
     "build": "npx -p typescript tsc",
     "build:clean": "yarn clean && yarn build",
-    "build:docker": "PKG_NAME=$(basename $npm_package_name) && docker build -t $DOCKER_REGISTRY/$DOCKER_GROUP-$PKG_NAME:$npm_package_version -t $DOCKER_REGISTRY/beatrice-$PKG_NAME:latest --build-arg package_name=$PKG_NAME ../..",
+    "build:docker": "PKG_NAME=$(basename $npm_package_name) && docker build -q -t $DOCKER_REGISTRY/$DOCKER_GROUP-$PKG_NAME:$npm_package_version -t $DOCKER_REGISTRY/$DOCKER_GROUP-$PKG_NAME:latest --build-arg package_name=$PKG_NAME ../..",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo",
     "deploy": "VERSION=$npm_package_version docker-compose up --build -d",
     "deploy:down": "docker-compose down",
