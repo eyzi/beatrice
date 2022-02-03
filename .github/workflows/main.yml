@@ -62,8 +62,8 @@ jobs:
       - name: Test variables
         run: docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*:latest" --format {{.Repository}}
       # - name: Push docker images
-      #   run: docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG
+      #   run: docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG > /dev/null
       # - name: Push new version
       #   run: git push --follow-tags origin ${{github.ref_name}}
       - name: Clean docker images
-        run: docker rmi $(docker images -q)
+        run: docker rmi $(docker images -q) > /dev/null
