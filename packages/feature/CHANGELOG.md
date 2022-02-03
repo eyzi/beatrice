@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/eyzi/beatrice/compare/@beatrice/feature@0.2.0...@beatrice/feature@0.2.1) (2022-02-03)
+
+
+### Bug Fixes
+
+* **scripts:** add quiet to build:docker script ([6d119fc](https://github.com/eyzi/beatrice/commit/6d119fceef98996567ad09d8e4506d3341e01ec5))
+
+
+
+
+
 # [0.2.0](https://github.com/eyzi/beatrice/compare/@beatrice/feature@0.1.1...@beatrice/feature@0.2.0) (2022-02-03)
 
 
