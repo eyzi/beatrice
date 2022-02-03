@@ -52,13 +52,15 @@ jobs:
           registry: ${{secrets.DOCKER_REGISTRY}}
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}
+      - name: Build docker images
+        run: |
+          yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
       - name: Test variables
         run: docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}}
-      # - name: Build docker images
-      #   run: |
-      #     yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
       # - name: Push docker images
       #   run: |
       #     docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG
       # - name: Push
       #   run: git push --follow-tags origin ${{github.ref_name}}
+      - name: Clean docker images
+        run: docker rmi $(docker images -q)
