@@ -6,7 +6,7 @@
   "scripts": {
     "build": "yarn build:common && npx lerna run build --parallel",
     "build:common": "npx lerna run build:common --parallel",
-    "build:docker": "npx lerna run build:docker --parallel",
+    "build:docker": "npx lerna run build:docker --parallel --loglevel=silent",
     "build:install": "yarn install && yarn build",
     "build:test": "yarn build && yarn test",
     "clean": "rm -rf lib && rm -rf node_modules && rm -rf tsconfig.tsbuildinfo && npx lerna run clean --parallel --no-bail",
