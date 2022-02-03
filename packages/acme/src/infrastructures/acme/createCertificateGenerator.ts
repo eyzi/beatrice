@@ -1,4 +1,4 @@
-const ACME = require("acme-v2");
+const ACME = require("acme");
 const punycode = require("punycode");
 const Keypairs = require("@root/keypairs");
 const CSR = require("@root/csr");
