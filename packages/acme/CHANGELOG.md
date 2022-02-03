@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.7.1...@beatrice/acme@1.8.0) (2022-02-03)
+
+
+### Features
+
+* add script to build docker ([cc541e8](https://github.com/eyzi/beatrice/commit/cc541e8bd976ef8915fbc75bb9c8f32d2e0cd4cf))
+
+
+
+
+
 ## [1.7.1](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.7.0...@beatrice/acme@1.7.1) (2022-01-24)
 
 
