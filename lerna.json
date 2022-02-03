@@ -7,7 +7,7 @@
   "useWorkspaces": true,
   "command": {
     "version": {
-      "push": true
+      "push": false
     },
     "publish": {
       "message": "chore(release): version bump"
