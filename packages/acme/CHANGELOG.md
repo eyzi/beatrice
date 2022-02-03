@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.8.1...@beatrice/acme@1.8.2) (2022-02-03)
+
+
+### Bug Fixes
+
+* **service:** remove usage of package.json to get name and version ([e2f78d1](https://github.com/eyzi/beatrice/commit/e2f78d1ccac29b7bbf32e60e78ff8bdad400a3ce))
+
+
+
+
+
 ## [1.8.1](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.8.0...@beatrice/acme@1.8.1) (2022-02-03)
 
 **Note:** Version bump only for package @beatrice/acme

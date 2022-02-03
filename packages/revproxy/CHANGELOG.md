@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.4.4...@beatrice/revproxy@1.4.5) (2022-02-03)
+
+
+### Bug Fixes
+
+* **service:** remove usage of package.json to get name and version ([e2f78d1](https://github.com/eyzi/beatrice/commit/e2f78d1ccac29b7bbf32e60e78ff8bdad400a3ce))
+
+
+
+
+
 ## [1.4.4](https://github.com/eyzi/beatrice/compare/@beatrice/revproxy@1.4.3...@beatrice/revproxy@1.4.4) (2022-02-03)
 
 **Note:** Version bump only for package @beatrice/revproxy
