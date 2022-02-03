@@ -5,7 +5,6 @@ import getSubdomains from "../services/getSubdomains"
 import startSubdomains from "../services/startSubdomains"
 import { SubdomainController, SubdomainRepository } from "../types"
 import startApi from "./startApi"
-const { name } = require("../../package.json")
 
 const initializeSavedSubdomains = async (
 	repository: SubdomainRepository,
@@ -26,7 +25,7 @@ export default async ({
 		httpPort,
 		httpsPort,
 		useHttp2,
-		logName: name,
+		logName: process.env.npm_package_name,
 		isVerbose: true,
 		certDir
 	})

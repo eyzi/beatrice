@@ -1,6 +1,4 @@
-import { resolve } from "path";
 const ACME = require("acme-v2");
-const pkg = require(resolve(__dirname, "..", "..", "..", "package.json"));
 const punycode = require("punycode");
 const Keypairs = require("@root/keypairs");
 const CSR = require("@root/csr");
@@ -26,7 +24,7 @@ const initGenerator =
 
     const acme = ACME.create({
       maintainerEmail: account.email,
-      packageAgent: `${pkg.name}/${pkg.version}`,
+      packageAgent: `${process.env.npm_package_name}/${process.env.npm_package_version}`,
       notify: (event: any, details: string | object) => {
         if (event === "error") console.error(details);
         logger(event, details);
