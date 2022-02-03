@@ -1,22 +1,70 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Test
+name: Main
 
 on:
   push:
     branches: [main]
 
 jobs:
-  beatrice-test:
+  checkout:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.3.0
-        name: Install dependencies
+        name: Checkout
         with:
-          cmd: build:install
+          fetch-depth: 0
+
+  test:
+    runs-on: self-hosted
+    needs: [checkout]
+    steps:
       - uses: borales/actions-yarn@v2.3.0
         name: Run Test
         with:
           cmd: test
+
+  version:
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
+    runs-on: self-hosted
+    needs: [checkout]
+    env:
+      DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
+    steps:
+      - name: Get list
+        id: lerna
+        run: |
+          SCOPES=$(npx lerna changed --json -a | jq 'map(.name) | join(",")' | tr -d '"')
+          echo "::set-output name=scopes::$SCOPES"
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{secrets.GPG_KEY}}
+          passphrase: ${{secrets.GPG_PASS}}
+          git_committer_name: ${{secrets.GIT_NAME}}
+          git_committer_email: ${{secrets.GIT_EMAIL}}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+      - name: Publish version
+        run: |
+          git config --local gpg.program $(which gpg)
+          git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
+          # yarn release
+      - uses: docker/login-action@v1
+        name: Login to docker registry
+        with:
+          registry: ${{secrets.DOCKER_REGISTRY}}
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_PASSWORD}}
+      - name: Test variables
+        run: |
+          echo yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
+          docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}}
+      # - name: Build docker images
+      #   run: |
+      #     yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
+      # - name: Push docker images
+      #   run: |
+      #     docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG
+      # - name: Push
+      #   run: git push --follow-tags origin ${{github.ref_name}}
+
