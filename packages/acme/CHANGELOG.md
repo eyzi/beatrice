@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.8.2...@beatrice/acme@1.8.3) (2022-02-03)
+
+
+### Bug Fixes
+
+* **service:** import acme instead of acme-v2 ([69cac93](https://github.com/eyzi/beatrice/commit/69cac937e331e78b0b7c74317a00731f38b0e0bb))
+
+
+
+
+
 ## [1.8.2](https://github.com/eyzi/beatrice/compare/@beatrice/acme@1.8.1...@beatrice/acme@1.8.2) (2022-02-03)
 
 

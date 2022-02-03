@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/acme",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "Acme Server",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/acme#readme",
