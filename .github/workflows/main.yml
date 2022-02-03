@@ -53,9 +53,7 @@ jobs:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}
       - name: Test variables
-        run: |
-          echo "yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}"
-          echo $(docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}})
+        run: docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}}
       # - name: Build docker images
       #   run: |
       #     yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
