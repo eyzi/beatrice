@@ -5,30 +5,24 @@ on:
     branches: [main]
 
 jobs:
-  checkout:
-    name: Checkout
+  test:
+    name: Checkout and Test
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
         name: Checkout
         with:
           fetch-depth: 0
-
-  test:
-    name: Test
-    runs-on: self-hosted
-    needs: [checkout]
-    steps:
-      - uses: borales/actions-yarn@v2.3.0
-        name: Run Test
-        with:
-          cmd: test
+      # - uses: borales/actions-yarn@v2.3.0
+      #   name: Run Test
+      #   with:
+      #     cmd: test      
 
   build:
     name: Version and Build
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     runs-on: self-hosted
-    needs: [checkout]
+    needs: [test]
     env:
       DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
     steps:
@@ -61,7 +55,7 @@ jobs:
       - name: Test variables
         run: |
           echo "yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}"
-          docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}}
+          echo $(docker images --filter "reference=$DOCKER_REGISTRY/beatrice-*:latest" --format {{.Repository}})
       # - name: Build docker images
       #   run: |
       #     yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
