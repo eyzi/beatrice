@@ -1,6 +1,6 @@
 {
   "name": "@beatrice/revproxy",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Reverse Proxy Server",
   "author": "Eyzi <contact@eyzi.xyz>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/revproxy#readme",
@@ -58,7 +58,7 @@
     "spec": "__tests__/**/*.test.ts"
   },
   "dependencies": {
-    "@beatrice/common": "^1.2.1",
+    "@beatrice/common": "^1.2.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.7",
