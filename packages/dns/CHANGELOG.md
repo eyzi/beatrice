@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.5](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.5.3...@beatrice/dns@1.5.5) (2022-02-10)
+
+
+### Bug Fixes
+
+* **error:** handle undefined questionArray and ECONNRESET errors ([1567b10](https://github.com/eyzi/beatrice/commit/1567b10ad655feb2ccb99c7bd57148ed8b14b5b4))
+
+
+
+
+
 ## [1.5.4](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.5.3...@beatrice/dns@1.5.4) (2022-02-04)
 
 **Note:** Version bump only for package @beatrice/dns
