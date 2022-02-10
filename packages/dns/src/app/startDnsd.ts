@@ -29,7 +29,7 @@ const registerSOA = async (
       );
 
 const getQuestionType = (questionArray: Question[]) => {
-  return questionArray[0].type || "SOA";
+  return questionArray?.[0]?.type || "SOA";
 };
 
 const mapAnswers = (questionName: string) => (records: Record[]) =>
@@ -89,11 +89,16 @@ const requestHandler =
   };
 
 export default (port: string, repository: Repository<Record, RecordQuery>) => {
-  const server = dnsd.createServer(requestHandler(repository));
+  let server = dnsd.createServer(requestHandler(repository));
   registerSOA(server, repository);
   server.on("error", (message: string | object) => {
-    console.error(message);
+    if (message && (message as any)?.code && (message as any)?.code === "ECONNRESET") {
+      server = dnsd.createServer(requestHandler(repository));
+    } else {
+      console.error(message);
+    }
   });
+  server.timeout = 0;
   server.listen(port, "0.0.0.0", () => {
     console.log(`DNS Service running at ${port}`);
   });
