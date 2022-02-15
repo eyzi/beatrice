@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.5.5...@beatrice/dns@1.6.0) (2022-02-15)
+
+
+### Features
+
+* **error:** add on close handler ([a83637b](https://github.com/eyzi/beatrice/commit/a83637b1cb42546541579baa5661c220d6e66439))
+
+
+
+
+
 ## [1.5.5](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.5.3...@beatrice/dns@1.5.5) (2022-02-10)
 
 
