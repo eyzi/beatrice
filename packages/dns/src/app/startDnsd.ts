@@ -88,15 +88,18 @@ const requestHandler =
     return res.end();
   };
 
+const createDnsdServer = (handler: ReturnType<typeof requestHandler>) => {
+  return dnsd.createServer(handler)
+}
+
 export default (port: string, repository: Repository<Record, RecordQuery>) => {
-  let server = dnsd.createServer(requestHandler(repository));
+  let server = createDnsdServer(requestHandler(repository));
   registerSOA(server, repository);
+  server.on("close", () => {
+    server = createDnsdServer(requestHandler(repository));
+  })
   server.on("error", (message: string | object) => {
-    if (message && (message as any)?.code && (message as any)?.code === "ECONNRESET") {
-      server = dnsd.createServer(requestHandler(repository));
-    } else {
-      console.error(message);
-    }
+    console.error(message);
   });
   server.timeout = 0;
   server.listen(port, "0.0.0.0", () => {
