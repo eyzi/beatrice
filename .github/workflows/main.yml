@@ -51,21 +51,21 @@ jobs:
           git config --local gpg.program $(which gpg)
           git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
           yarn lerna:version
-      # - uses: docker/login-action@v1
-      #   name: Login to docker registry
-      #   with:
-      #     registry: ${{secrets.DOCKER_REGISTRY}}
-      #     username: ${{secrets.DOCKER_USERNAME}}
-      #     password: ${{secrets.DOCKER_PASSWORD}}
-      # - name: Build docker images
-      #   run: |
-      #     if [[ "${{ steps.lerna.outputs.scopes }}" != "" ]]; then
-      #       yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
-      #     fi
-      # - name: Push docker images
-      #   run: docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG > /dev/null
+      - uses: docker/login-action@v1
+        name: Login to docker registry
+        with:
+          registry: ${{secrets.DOCKER_REGISTRY}}
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_PASSWORD}}
+      - name: Build docker images
+        run: |
+          if [[ "${{ steps.lerna.outputs.scopes }}" != "" ]]; then
+            yarn build:docker --scope={${{ steps.lerna.outputs.scopes }},}
+          fi
+      - name: Push docker images
+        run: docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG > /dev/null
       - name: Push new version
         run: git push --follow-tags origin ${{github.ref_name}}
-      # - name: Clean docker images
-      #   run: docker rmi -f $(docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*" --format {{.ID}}) > /dev/null
-      #   continue-on-error: true
+      - name: Clean docker images
+        run: docker rmi -f $(docker images --filter "reference=$DOCKER_REGISTRY/$DOCKER_GROUP-*" --format {{.ID}}) > /dev/null
+        continue-on-error: true
