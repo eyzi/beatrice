@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.6.0...@beatrice/dns@1.6.1) (2022-03-20)
+
+**Note:** Version bump only for package @beatrice/dns
+
+
+
+
+
 # [1.6.0](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.5.5...@beatrice/dns@1.6.0) (2022-02-15)
 
 
