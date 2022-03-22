@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/eyzi/beatrice/compare/@beatrice/feature@0.2.6...@beatrice/feature@0.2.7) (2022-03-22)
+
+
+### Bug Fixes
+
+* **package.json:** update author email ([b675e46](https://github.com/eyzi/beatrice/commit/b675e4627fff946df1f9be07732336327835b7a1))
+
+
+
+
+
 ## [0.2.6](https://github.com/eyzi/beatrice/compare/@beatrice/feature@0.2.5...@beatrice/feature@0.2.6) (2022-03-20)
 
 **Note:** Version bump only for package @beatrice/feature
