@@ -2,7 +2,7 @@
   "name": "@beatrice/acme",
   "version": "1.8.7",
   "description": "Acme Server",
-  "author": "Eyzi <contact@eyzi.xyz>",
+  "author": "Eyzi <contact@eyzi.dev>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/acme#readme",
   "private": true,
   "license": "ISC",

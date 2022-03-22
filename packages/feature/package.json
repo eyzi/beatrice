@@ -2,7 +2,7 @@
   "name": "@beatrice/feature",
   "version": "0.2.6",
   "description": "Feature Flag Package",
-  "author": "Eyzi <contact@eyzi.xyz>",
+  "author": "Eyzi <contact@eyzi.dev>",
   "homepage": "https://github.com/eyzi/beatrice/tree/main/packages/feature#readme",
   "private": true,
   "license": "ISC",

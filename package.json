@@ -26,7 +26,7 @@
     "type": "git",
     "url": "git+https://github.com/eyzi/beatrice.git"
   },
-  "author": "Eyzi",
+  "author": "Eyzi <contact@eyzi.dev>",
   "private": true,
   "license": "ISC",
   "bugs": {
