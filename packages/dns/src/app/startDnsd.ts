@@ -76,11 +76,14 @@ const requestHandler =
       if (rawAnswers) rawAnswers.map((answer) => answerArray.push(answer));
     }
 
-    for (let answer of answerArray) {
+    // to avoid hitting UDP limit, only send the latest 4 answers
+    const cleanAnswerArray = answerArray.reverse().slice(0,4);
+    for (let answer of cleanAnswerArray) {
       let { name, type, ttl, data } = answer;
       if (data) {
         if (typeof data === "string" && publicIpV4)
           data = data.replace(/%PUBLIC_IP%/i, publicIpV4);
+        console.log({ name, type, ttl, data });
         res.answer.push({ name, type, ttl, data });
       }
     }
