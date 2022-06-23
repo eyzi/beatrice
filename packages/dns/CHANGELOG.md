@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.6.2...@beatrice/dns@1.6.3) (2022-06-23)
+
+
+### Bug Fixes
+
+* **dns:** only send latest 4 answers to prevent hitting UDP 512 limit ([970d9c9](https://github.com/eyzi/beatrice/commit/970d9c936ddf00b3d6fc97299fcbce518e914e5e))
+
+
+
+
+
 ## [1.6.2](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.6.1...@beatrice/dns@1.6.2) (2022-03-22)
 
 
