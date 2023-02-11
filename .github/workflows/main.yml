@@ -12,6 +12,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - uses: mskelton/setup-yarn@v1
+        with:
+          node-version: '16.x'
       - uses: actions/checkout@v2
         name: Checkout
         with:
@@ -33,6 +36,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - uses: mskelton/setup-yarn@v1
+        with:
+          node-version: '16.x'
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 0
       - name: Get list
         id: lerna
         run: |
@@ -52,7 +62,7 @@ jobs:
         run: |
           git config --local gpg.program $(which gpg)
           git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
-          npm run lerna:version
+          yarn lerna:version
       - uses: docker/login-action@v1
         name: Login to docker registry
         with:
