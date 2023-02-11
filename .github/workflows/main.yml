@@ -17,9 +17,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install
-        run: yarn build:install
+        run: npm run build:install
       - name: Run Test
-        run: yarn test
+        run: npm run test
 
   build:
     name: Version and Build
@@ -30,6 +30,9 @@ jobs:
       DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
       DOCKER_GROUP: ${{ secrets.DOCKER_GROUP }}
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Get list
         id: lerna
         run: |
@@ -49,7 +52,7 @@ jobs:
         run: |
           git config --local gpg.program $(which gpg)
           git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
-          yarn lerna:version
+          npm run lerna:version
       - uses: docker/login-action@v1
         name: Login to docker registry
         with:
