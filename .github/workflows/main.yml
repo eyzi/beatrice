@@ -15,10 +15,8 @@ jobs:
       - uses: mskelton/setup-yarn@v1
         with:
           node-version: '16.x'
-      - uses: actions/checkout@v2
-        name: Checkout
-        with:
-          fetch-depth: 0
+      - name: Setup Yarn
+        run: npm install -g yarn@1.22.19
       - name: Install
         run: npm run build:install
       - name: Run Test
@@ -36,9 +34,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: mskelton/setup-yarn@v1
-        with:
-          node-version: '16.x'
+      - name: Setup Yarn
+        run: npm install -g yarn@1.22.19
       - uses: actions/checkout@v2
         name: Checkout
         with:
