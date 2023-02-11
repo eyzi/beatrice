@@ -1,4 +1,4 @@
-FROM node:alpine AS base
+FROM node:16-alpine AS base
 WORKDIR /app
 COPY . .
 RUN apk --no-cache --virtual build-dependencies add python3 make g++ git
