@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.6.3...@beatrice/dns@1.7.0) (2023-02-11)
+
+
+### Features
+
+* **dns:** separate exact and wildcard queries ([b1613e1](https://github.com/eyzi/beatrice/commit/b1613e16d3452304e64c465c3431784fbb867d4a))
+
+
+
+
+
 ## [1.6.3](https://github.com/eyzi/beatrice/compare/@beatrice/dns@1.6.2...@beatrice/dns@1.6.3) (2022-06-23)
 
 
